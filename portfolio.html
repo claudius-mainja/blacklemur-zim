@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your compelling description here">
+    <title>Blacklemur Innovations</title>
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="article:author" content="Claudius Mainja- Product and Brand Designer/Web Developer">
+    <meta property="og:title" content="Blacklemur Innovations">
+    <meta property="og:description" content="a Zimbabwe's premier creative agency delivering innovative solutions for forward-thinking brands.">
+    <link rel="icon" type="image/x-icon" href="Assets/images/icon.jpeg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+
+<header>
+
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 shadow-sm transition-all duration-300 montserrat text-lg" 
+         x-data="{ isOpen: false, atTop: true }" 
+         @scroll.window="atTop = (window.pageYOffset > 20) ? false : true"
+         :class="{'py-2': !atTop, 'py-4': atTop}">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="Assets/images/Main Logo_Main 1.png" alt="logo" height="200px" width="200px" >
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="about us.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Who We Are</a>
+                    <a href="services.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">What We Do</a>
+                    <a href="portfolio.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Our Work</a>
+                    <a href="contact.html" class="px-6 py-3 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:shadow-lg transition duration-300 transform hover:-translate-y-0.5">
+                        Contact Us
+                    </a>
+                </div>
+                <button @click="isOpen = !isOpen" class="md:hidden text-gray-700 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden" x-show="isOpen" x-transition>
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="about us.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Who We Are</a>
+                    <a href="services.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">What We Do</a>
+                    <a href="portfolio.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Our Work</a>
+                    <a href="contact.html" class="block px-3 py-2 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-md">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+           
+    <body class="bg-slate-100 text-violet-800 dark:bg-gradient-to-tr from-indigo-800 to-violet-600 dark:text:white montserrat text-lg">
+    
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .fade-in { animation: fadeIn 0.8s ease forwards; }
+        .slide-up { animation: slideUp 0.8s ease-out forwards; }
+        .scale-hover:hover { transform: scale(1.05); }
+    </style>
+
+<!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url('Assets/images/portfoliobg.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-b from-indigo-800 to-transparent opacity-70"></div>
+    <div class="relative flex items-center justify-center h-full text-center text-white fade-in">
+        <div class="space-y-6 slide-up">
+            <h1 class="text-4xl md:text-5xl montserrat-alternates-bold ">Our Portfolio</h1>
+            <p class="text-lg md:text-2xl">Showcasing the creativity that powers Blacklemur Innovations</p>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl montserrat-alternates-bold  text-gray-800 text-center mb-12 fade-in">Our Work</h2>
+
+        <!-- Web Design Section -->
+        <div class="mb-12">
+            <h3 class="text-2xl montserrat-alternates-bold  text-indigo-800 mb-6">Web Design Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/websites/7 arts Theatre.png" alt="7 Arts Theatre Avondale" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">7 Arts Theatre Avondale</h4>
+                    <p class="text-gray-600 mb-4">A responsive and modern website tailored to showcase 7arts Theatre Avondale brand effectively, accross all channels</p>
+                    <a href="https://7artstheatre.com/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/websites/takadah.png" alt="Takadah UK" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Takadah</h4>
+                    <p class="text-gray-600 mb-4">An e-commerce site designed to maximize user engagement and sales conversions.</p>
+                    <a href="https://takadah.co.uk/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/websites/classicre.png" alt="Classic Reinsurance Brokers" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Classic Reinsurance Brokers</h4>
+                    <p class="text-gray-600 mb-4">A corporate professional website with a focus on a sleek, professional design and intuitive layout.</p>
+                    <a href="https://classicre.co.zw/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                      <!-- Project Card 4 -->
+                      <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                        <img src="Assets/images/projects/websites/Nature Extant.png" alt="Classic Reinsurance Brokers" class="rounded-lg mb-4 w-full">
+                        <h4 class="text-xl font-semibold text-gray-800">Nature Extant Learning Center</h4>
+                        <p class="text-gray-600 mb-4">An E-learning website for teh students to get access of information of the programs register while have the acessibility functionality to switch between dark and light theme.</p>
+                        <a href="https://natureextant.com/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                    </div>
+
+                              <!-- Project Card 5 -->
+                         <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                             <img src="Assets/images/projects/websites/GPG.png" alt="Giant Petroleum Group" class="rounded-lg mb-4 w-full">
+                             <h4 class="text-xl font-semibold text-gray-800">Giant Petroleum Group</h4>
+                            <p class="text-gray-600 mb-4">A corporate website with a focus on a sleek, professional design and intuitive layout.</p>
+                            <a href="https://giantpetroleumgroup.co.za/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                       </div>
+
+                                  <!-- Project Card 5 -->
+                                  <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                                    <img src="Assets/images/projects/websites/Hukoshwa.png" alt="Hukoshwa Contracting" class="rounded-lg mb-4 w-full">
+                                    <h4 class="text-xl font-semibold text-gray-800">Hukoshwa Contracting</h4>
+                                   <p class="text-gray-600 mb-4">A corporate website for a contruction company, with a focus on a sleek, professional design and intuitive layout.</p>
+                                   <a href="https://www.hukoshwa.com/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                              </div>
+
+            </div>
+        </div>
+
+        <!-- Brand Design Section -->
+        <div>
+            <h3 class="text-2xl montserrat-alternates-bold  text-indigo-800 mb-6">Brand Design Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project Card 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/branding/Cruise Job.png" alt="Cruise Job Assist" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Cruise Job Assit</h4>
+                    <p class="text-gray-600 mb-4">Crafted a unique brand identity, including logo, color palette, and guidelines.</p>
+                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/branding/Frostice.png" alt="FrostIce" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Frost Ice </h4>
+                    <p class="text-gray-600 mb-4">Developed a cohesive brand strategy and design assets for the brand to use on digital marketing.</p>
+                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/branding/NELC.png" alt="Nature Extant" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Nature Extant</h4>
+                    <p class="text-gray-600 mb-4"> Designed a brand identity for a learning insititute, that it can be fitted in all corporate prints</p>
+                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/branding/Evolve Roofing.png" alt="Evolve Roofing" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Evolve Roofing</h4>
+                    <p class="text-gray-600 mb-4">Redesigned an existing brand to enhance visual consistency and appeal.</p>
+                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/branding/LexChem.png" alt="LexChem Pharmaceutical" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">LexChem Pharmaceutical</h4>
+                    <p class="text-gray-600 mb-4">Developed a cohesive brand strategy and design assets for digital marketing.</p>
+                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
+                    <img src="Assets/images/projects/branding/Mujegra.png" alt="Mujegra Enterprises" class="rounded-lg mb-4 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800">Mujegra Enterprises</h4>
+                    <p class="text-gray-600 mb-4">Developed a cohesive brand strategy and design assets for digital marketing.</p>
+                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.fade-in, .slide-up');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    });
+</script>
+
+</body>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="text-2xl font-bold mb-6">at BLacklemur Innovations</div>
+                <p class="text-gray-400">Our mission is to empower businesses by providing cutting-edge solutions in brand design, web and application development, marketing strategies, and data solutions.</p>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-lg mb-6">Services</h3>
+                <ul class="space-y-4 text-gray-400">
+                    <li><a href="services.html" class="hover:text-white transition-colors">Brand Design</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Web Development</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Digital Marketing</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Data Solutions</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-lg mb-6">Company</h3>
+                <ul class="space-y-4 text-gray-400">
+                    <li><a href="about us.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="portfolio.html" class="hover:text-white transition-colors">Our Work</a></li>
+                    <li><a href="mailto:info@blacklemur.co.zw" class="hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-lg mb-6">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="https://web.facebook.com/blacklemurinnovation" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/blacklemurs1" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/theblproject" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/theblproject" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 BLacklemur Innovations. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</html>
