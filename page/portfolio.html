@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio - Blacklemur Innovations. View our latest branding, web design, and digital marketing projects.">
-    <title>Our Work | Blacklemur Innovations - Portfolio</title>
+    <title>Our Work | Blacklemur Innovations</title>
     
     <link rel="icon" type="image/x-icon" href="/Assets/images/icon.jpeg">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -19,199 +19,455 @@
     <style type="text/tailwindcss">
         @layer base { * { font-family: "Montserrat", sans-serif; } }
         @layer utilities {
-            .text-gradient-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+            .text-gradient-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
             .bg-gradient-brand { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+            .glass-card-hover:hover {
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                box-shadow: 0 12px 40px rgba(249, 115, 22, 0.15);
+            }
+            .bg-dark-gradient {
+                background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+            }
+            .project-card {
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .project-card:hover {
+                transform: translateY(-8px);
+            }
+            .project-card.hidden {
+                display: none;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 overflow-x-hidden">
+<body class="bg-gray-900 overflow-x-hidden">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/95 border-b border-gray-200">
-        <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/95 border-b border-gray-200">
+        <div class="container max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <a href="/index.html" class="flex items-center transform hover:scale-105"><img src="/Assets/images/Main Logo_Main 1.png" class="h-12 w-auto"></a>
+                    <a href="/index.html"><img src="/Assets/images/Main Logo_Main 1.png" class="h-12"></a>
                 </div>
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">Home</a>
-                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">About</a>
-                    <a href="/page/services.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">Services</a>
-                    <a href="/page/portfolio.html" class="relative text-orange-600 font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-orange-600">Work</a>
-                    <a href="/page/insights.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">Insights</a>
-                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-brand text-white rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105">Let's Talk</a>
+                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-orange-600 text-sm uppercase">HOME</a>
+                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-orange-600 text-sm uppercase">ABOUT</a>
+                    <a href="/page/services.html" class="relative text-gray-800 font-semibold hover:text-orange-600 text-sm uppercase">SERVICES</a>
+                    <a href="/page/portfolio.html" class="relative text-orange-600 font-bold text-sm uppercase after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-orange-600">WORK</a>
+                    <a href="/page/insights.html" class="relative text-gray-800 font-semibold hover:text-orange-600 text-sm uppercase">INSIGHTS</a>
+                    <a href="https://wa.me/263786187218" class="px-5 py-2 bg-gradient-brand text-white rounded-full font-semibold text-sm uppercase hover:shadow-lg">LET'S TALK</a>
                 </div>
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-800"><i class="fas fa-bars text-2xl"></i></button>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800"><i class="fas fa-bars text-xl"></i></button>
             </div>
         </div>
     </nav>
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full lg:hidden">
-        <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-3xl"><i class="fas fa-times"></i></button>
-        <div class="flex flex-col items-center justify-center h-full space-y-6">
-            <a href="/index.html" class="text-2xl font-bold text-gray-800">Home</a>
-            <a href="/page/about us.html" class="text-2xl font-bold text-gray-800">About</a>
-            <a href="/page/services.html" class="text-2xl font-bold text-gray-800">Services</a>
-            <a href="/page/portfolio.html" class="text-2xl font-bold text-orange-600">Work</a>
-            <a href="/page/insights.html" class="text-2xl font-bold text-gray-800">Insights</a>
-            <a href="https://wa.me/263786187218" class="text-2xl font-bold text-gray-800">Contact</a>
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-2xl"><i class="fas fa-times"></i></button>
+        <div class="flex flex-col items-center justify-center h-full space-y-4">
+            <a href="/index.html" class="text-lg font-bold text-gray-800 uppercase">HOME</a>
+            <a href="/page/about us.html" class="text-lg font-bold text-gray-800 uppercase">ABOUT</a>
+            <a href="/page/services.html" class="text-lg font-bold text-gray-800 uppercase">SERVICES</a>
+            <a href="/page/portfolio.html" class="text-lg font-bold text-orange-600 uppercase">WORK</a>
+            <a href="/page/insights.html" class="text-lg font-bold text-gray-800 uppercase">INSIGHTS</a>
+            <a href="https://wa.me/263786187218" class="text-lg font-bold text-gray-800 uppercase">CONTACT</a>
         </div>
     </div>
 
-    <!-- Hero -->
-    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute top-40 right-20 w-96 h-96 bg-orange-600 rounded-full blur-3xl animate-pulse delay-500"></div>
-        </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-6 border border-orange-500/30" data-aos="fade-down">PORTFOLIO</span>
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6" data-aos="fade-up">Work That <span class="text-gradient-orange bg-clip-text text-transparent">Speaks</span></h1>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto" data-aos="fade-up">Explore our latest projects showcasing creativity, innovation, and results-driven design.</p>
-            
-            <div class="flex flex-wrap justify-center gap-3 mt-8" data-aos="fade-up">
-                <button class="filter-btn active px-6 py-3 bg-orange-500 text-white rounded-full font-semibold" data-filter="all">All</button>
-                <button class="filter-btn px-6 py-3 bg-gray-800 text-white rounded-full font-semibold hover:bg-orange-500" data-filter="branding">Branding</button>
-                <button class="filter-btn px-6 py-3 bg-gray-800 text-white rounded-full font-semibold hover:bg-orange-500" data-filter="web">Web Design</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-black text-gray-900 mb-2">Web Design Projects</h2>
-                <p class="text-gray-600">Stunning websites that convert visitors into customers</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web" data-aos="fade-up">
-                    <img src="/Assets/images/projects/websites/7 arts Theatre.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Web Design</span><h3 class="text-white font-bold text-lg">7 Arts Theatre</h3><a href="https://7artstheatre.com/" target="_blank" class="text-orange-400 text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/Assets/images/projects/websites/takadah.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">E-commerce</span><h3 class="text-white font-bold text-lg">Takadah</h3><a href="https://takadah.co.uk/" target="_blank" class="text-orange-400 text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/Assets/images/projects/websites/classicre.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Corporate</span><h3 class="text-white font-bold text-lg">Classic Reinsurance</h3><a href="https://classicre.co.zw/" target="_blank" class="text-orange-400 text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web" data-aos="fade-up">
-                    <img src="/Assets/images/projects/websites/Nature Extant.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">E-learning</span><h3 class="text-white font-bold text-lg">Nature Extant</h3><a href="https://natureextant.com/" target="_blank" class="text-orange-400 text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/Assets/images/projects/websites/GPG.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Corporate</span><h3 class="text-white font-bold text-lg">Giant Petroleum</h3><a href="https://giantpetroleumgroup.co.za/" target="_blank" class="text-orange-400 text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/Assets/images/projects/websites/Hukoshwa.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Corporate</span><h3 class="text-white font-bold text-lg">Hukoshwa</h3><a href="https://www.hukoshwa.com/" target="_blank" class="text-orange-400 text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-black text-gray-900 mb-2">Branding Projects</h2>
-                <p class="text-gray-600">Memorable brand identities that stand out</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding" data-aos="fade-up">
-                    <img src="/Assets/images/projects/branding/Cruise Job.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Brand Identity</span><h3 class="text-white font-bold text-lg">Cruise Job</h3></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/Assets/images/projects/branding/Frostice.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Brand Design</span><h3 class="text-white font-bold text-lg">Frost Ice</h3></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/Assets/images/projects/branding/NELC.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Institutional</span><h3 class="text-white font-bold text-lg">Nature Extant</h3></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding" data-aos="fade-up">
-                    <img src="/Assets/images/projects/branding/Evolve Roofing.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Brand Redesign</span><h3 class="text-white font-bold text-lg">Evolve Roofing</h3></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/Assets/images/projects/branding/LexChem.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Pharmaceutical</span><h3 class="text-white font-bold text-lg">LexChem</h3></div>
-                    </div>
-                </div>
-                <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/Assets/images/projects/branding/Mujegra.png" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <div><span class="text-orange-400 text-xs font-semibold">Enterprise</span><h3 class="text-white font-bold text-lg">Mujegra</h3></div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center min-h-[50vh] overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 z-5"></div>
+        <div class="relative flex items-center justify-center h-full text-center text-white z-20 px-4 py-10">
+            <div class="space-y-3">
+                <h1 class="text-3xl md:text-5xl font-black uppercase">WE STAND IN <span class="text-gradient-orange bg-clip-text text-transparent">CREATIVITY</span></h1>
+                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">SHOWCASING THE INNOVATION AND EXCELLENCE BEHIND OUR SUCCESS STORIES</p>
+                <div class="flex justify-center gap-3">
+                    <span class="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></span>
+                    <span class="w-3 h-3 bg-orange-600 rounded-full animate-pulse delay-100"></span>
+                    <span class="w-3 h-3 bg-gray-400 rounded-full animate-pulse delay-200"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section class="py-16 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="fade-up"><div class="text-4xl font-black text-orange-500">150+</div><div class="text-gray-400 mt-2">Projects</div></div>
-                <div data-aos="fade-up" data-aos-delay="100"><div class="text-4xl font-black text-orange-500">50+</div><div class="text-gray-400 mt-2">Clients</div></div>
-                <div data-aos="fade-up" data-aos-delay="200"><div class="text-4xl font-black text-orange-500">8+</div><div class="text-gray-400 mt-2">Years</div></div>
-                <div data-aos="fade-up" data-aos-delay="300"><div class="text-4xl font-black text-orange-500">25+</div><div class="text-gray-400 mt-2">Industries</div></div>
+    <!-- Portfolio -->
+    <section class="py-16 lg:py-24 bg-dark-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4 uppercase">Our Work</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Explore our diverse portfolio of projects spanning branding, web design, digital marketing, and more.</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterProjects('all')" class="filter-btn active px-6 py-3 glass-card rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-orange-500 transition-all duration-300" data-filter="all">
+                    All Projects
+                </button>
+                <button onclick="filterProjects('web')" class="filter-btn px-6 py-3 glass-card rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-orange-500 transition-all duration-300" data-filter="web">
+                    Web Design
+                </button>
+                <button onclick="filterProjects('branding')" class="filter-btn px-6 py-3 glass-card rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-orange-500 transition-all duration-300" data-filter="branding">
+                    Branding
+                </button>
+                <button onclick="filterProjects('marketing')" class="filter-btn px-6 py-3 glass-card rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-orange-500 transition-all duration-300" data-filter="marketing">
+                    Digital Marketing
+                </button>
+                <button onclick="filterProjects('app')" class="filter-btn px-6 py-3 glass-card rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-orange-500 transition-all duration-300" data-filter="app">
+                    App Design
+                </button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                <!-- Web Design Project 1 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="web">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/websites/7 arts Theatre.png" alt="7 Arts Theatre" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Web Design</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">7 Arts Theatre</h3>
+                        <p class="text-gray-400 text-sm mb-4">Professional theatre website with event booking and showcase features.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">E-commerce</span>
+                            <a href="https://7artstheatre.com/" target="_blank" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Design Project 2 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="web">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/websites/takadah.png" alt="Takadah UK" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Web Design</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Takadah UK</h3>
+                        <p class="text-gray-400 text-sm mb-4">E-commerce platform for Islamic products with secure payments.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">E-commerce</span>
+                            <a href="https://takadah.co.uk/" target="_blank" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Design Project 3 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="web">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/websites/classicre.png" alt="Classic Reinsurance" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Web Design</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Classic Reinsurance</h3>
+                        <p class="text-gray-400 text-sm mb-4">Corporate website for leading insurance company in Zimbabwe.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Corporate</span>
+                            <a href="https://classicre.co.zw/" target="_blank" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branding Project 1 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="branding">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/branding/Cruise Job.png" alt="Cruise Job" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Branding</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Cruise Job Assist</h3>
+                        <p class="text-gray-400 text-sm mb-4">Complete brand identity including logo, color palette, and brand guidelines.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Brand Identity</span>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branding Project 2 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="branding">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/branding/Frostice.png" alt="Frost Ice" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Branding</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Frost Ice</h3>
+                        <p class="text-gray-400 text-sm mb-4">Fresh brand identity for ice cream company with modern visual elements.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Brand Design</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branding Project 3 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="branding">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/branding/NELC.png" alt="Nature Extant" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Branding</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Nature Extant</h3>
+                        <p class="text-gray-400 text-sm mb-4">Institutional branding for environmental conservation organization.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Institutional</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Project 1 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="marketing">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/TECHDIRV_SOM.png" alt="TechDirv" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Digital Marketing</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">TechDirv Campaign</h3>
+                        <p class="text-gray-400 text-sm mb-4">Comprehensive digital marketing strategy including SEO and social media.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">SEO & Social</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Project 2 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="marketing">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/servicesbg.jpg" alt="Marketing Campaign" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Digital Marketing</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Brand Awareness Campaign</h3>
+                        <p class="text-gray-400 text-sm mb-4">Multi-channel marketing campaign resulting in 200% increased engagement.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Multi-channel</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Design Project 1 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="app">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/services/App design.png" alt="Mobile App" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">App Design</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">E-Commerce App</h3>
+                        <p class="text-gray-400 text-sm mb-4">User-friendly mobile app design with seamless shopping experience.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">iOS & Android</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Design Project 4 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="web">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/homebg.png" alt="Corporate Website" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Web Design</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">GPG Solutions</h3>
+                        <p class="text-gray-400 text-sm mb-4">Corporate website for consulting firm with lead generation features.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Corporate</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branding Project 4 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="branding">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/projects/home 1.png" alt="DOVE Brand" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">Branding</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">DOVE</h3>
+                        <p class="text-gray-400 text-sm mb-4">Luxury brand identity with elegant visual system and packaging design.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Luxury Brand</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Design Project 2 -->
+                <div class="project-card glass-card glass-card-hover rounded-2xl overflow-hidden" data-category="app">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/Assets/images/services/UIUX Design.png" alt="Finance App" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase">App Design</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Finance Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">Modern fintech app design with intuitive data visualization.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-500 text-xs font-semibold uppercase">Fintech</span>
+                            <a href="#" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">View Project <i class="fas fa-external-link-alt ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View More Button -->
+            <div class="text-center mt-12">
+                <a href="/page/services.html" class="inline-flex items-center gap-2 text-orange-500 font-bold text-lg hover:gap-4 transition-all uppercase tracking-wider">
+                    View All Services <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-gradient-brand">
+    <section class="py-16 bg-gradient-brand">
         <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-4xl sm:text-5xl font-black text-white mb-6" data-aos="fade-up">Have a Project in Mind?</h2>
-            <p class="text-white/90 text-lg mb-8" data-aos="fade-up">Let's bring your vision to life.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up">
-                <a href="https://wa.me/263786187218" target="_blank" class="px-8 py-4 bg-white text-orange-600 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2"><i class="fab fa-whatsapp"></i> Start Project</a>
-                <a href="/page/services.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-orange-600">View Services</a>
+            <h2 class="text-2xl font-black text-white mb-2 uppercase">HAVE A PROJECT IN MIND?</h2>
+            <p class="text-white/90 mb-4">LET'S BRING YOUR VISION TO LIFE.</p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://wa.me/263786187218" class="px-6 py-2 bg-white text-orange-600 rounded-full font-bold text-sm uppercase hover:shadow-lg">START PROJECT</a>
+                <a href="/page/services.html" class="px-6 py-2 border-2 border-white text-white rounded-full font-bold text-sm uppercase hover:bg-white hover:text-orange-600">VIEW SERVICES</a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12 lg:py-16 px-4">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div><div class="text-2xl font-black mb-6"><span class="text-orange-500">BLACK</span><span class="text-orange-500">LEMUR</span></div><p class="text-gray-400 mb-6 text-sm">Zimbabwe's premier creative design agency.</p><div class="flex gap-4"><a href="https://web.facebook.com/blacklemurinnovation" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-600"><i class="fab fa-facebook-f"></i></a><a href="https://x.com/blacklemurs1" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-600"><i class="fab fa-twitter"></i></a><a href="https://www.instagram.com/theblproject" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-600"><i class="fab fa-instagram"></i></a></div></div>
-                <div><h3 class="font-bold text-lg mb-6">Services</h3><ul class="space-y-3 text-gray-400 text-sm"><li><a href="/page/services.html" class="hover:text-orange-500">Brand Identity</a></li><li><a href="/page/services.html" class="hover:text-orange-500">Web Design</a></li><li><a href="/page/services.html" class="hover:text-orange-500">Digital Marketing</a></li></ul></div>
-                <div><h3 class="font-bold text-lg mb-6">Company</h3><ul class="space-y-3 text-gray-400 text-sm"><li><a href="/page/about us.html" class="hover:text-orange-500">About</a></li><li><a href="/page/portfolio.html" class="hover:text-orange-500">Work</a></li><li><a href="/page/insights.html" class="hover:text-orange-500">Insights</a></li></ul></div>
-                <div><h3 class="font-bold text-lg mb-6">Contact</h3><ul class="space-y-3 text-gray-400 text-sm"><li class="flex items-start gap-2"><i class="fas fa-map-marker-alt mt-1 text-orange-500"></i><span>33 Argyle Road, Avondale<br>Harare, Zimbabwe</span></li><li><a href="mailto:info@blacklemur.co.zw" class="hover:text-orange-500">info@blacklemur.co.zw</a></li><li><a href="tel:+263786187218" class="hover:text-orange-500">+263 786 187 218</a></li></ul></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="text-2xl font-black mb-6 uppercase tracking-wider">
+                        <span class="text-orange-500">BLACK</span><span class="text-orange-500">LEMUR</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                        Zimbabwe's premier creative design agency. We craft bold brands, stunning websites, and results-driven experiences that grow your business.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://web.facebook.com/blacklemurinnovation" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/blacklemurs1" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/theblproject" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://za.linkedin.com/company/blacklemurinnovations" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6 uppercase tracking-wider">Services</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Brand Identity</a></li>
+                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Web Design</a></li>
+                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Digital Marketing</a></li>
+                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">App Development</a></li>
+                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">UI/UX Design</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6 uppercase tracking-wider">Company</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/page/about us.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">About Us</a></li>
+                        <li><a href="/page/portfolio.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Our Work</a></li>
+                        <li><a href="/page/insights.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Insights</a></li>
+                        <li><a href="/page/contact.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6 uppercase tracking-wider">Get in Touch</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-map-marker-alt text-orange-500 text-xs"></i>
+                            </div>
+                            <span class="uppercase text-xs tracking-wide leading-relaxed">33 Argyle Road,<br>Avondale, Harare,<br>Zimbabwe</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-orange-500 text-xs"></i>
+                            </div>
+                            <a href="mailto:info@blacklemur.co.zw" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">info@blacklemur.co.zw</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-orange-500 text-xs"></i>
+                            </div>
+                            <a href="tel:+263786187218" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">+263 786 187 218</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2026 Blacklemur Innovations. All rights reserved.</p></div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; 2026 Blacklemur Innovations. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        AOS.init({ duration: 800, once: true, offset: 100 });
+        AOS.init({ duration: 500, once: true });
         document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('translate-x-full'));
         document.getElementById('mobile-menu-close').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('translate-x-full'));
-        gsap.registerPlugin(ScrollTrigger);
+        
+        // Filter Projects
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-orange-500', 'text-white');
+                btn.classList.add('glass-card');
+            });
+            
+            event.target.classList.add('bg-orange-500', 'text-white');
+            event.target.classList.remove('glass-card');
+            
+            // Filter projects
+            projects.forEach(project => {
+                if (category === 'all' || project.dataset.category === category) {
+                    project.classList.remove('hidden');
+                    project.style.animation = 'fadeIn 0.5s ease-out';
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Set initial active button
+        document.querySelector('[data-filter="all"]').classList.add('bg-orange-500', 'text-white');
+        document.querySelector('[data-filter="all"]').classList.remove('glass-card');
     </script>
 </body>
 </html>
