@@ -3,422 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your compelling description here">
-    <title>Blacklemur Innovations</title>
+    <meta name="description" content="Portfolio - Blacklemur Innovations. View our latest branding, web design, and digital marketing projects.">
+    <title>Our Work | Blacklemur Innovations - Portfolio</title>
     
-    <!-- Open Graph tags for social sharing -->
-    <meta property="article:author" content="Claudius Mainja- Product and Brand Designer/Web Developer">
-    <meta property="og:title" content="Blacklemur Innovations">
-    <meta property="og:description" content="a Zimbabwe's premier creative agency delivering innovative solutions for forward-thinking brands.">
     <link rel="icon" type="image/x-icon" href="/Assets/images/icon.jpeg">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
+    <style type="text/tailwindcss">
+        @layer base {
+            * {
+                font-family: "Montserrat", sans-serif;
+            }
+        }
+        @layer utilities {
+            .text-gradient {
+                background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #f97316 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .portfolio-card:hover .portfolio-overlay {
+                opacity: 1;
+            }
+            .portfolio-card:hover img {
+                transform: scale(1.1);
+            }
+        }
+    </style>
 </head>
-
-
-<header>
-
+<body class="bg-slate-50 overflow-x-hidden">
+    
     <!-- Navigation -->
-    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 shadow-sm transition-all duration-300 montserrat text-lg" 
-         x-data="{ isOpen: false, atTop: true }" 
-         @scroll.window="atTop = (window.pageYOffset > 20) ? false : true"
-         :class="{'py-2': !atTop, 'py-4': atTop}">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/90 border-b border-indigo-100">
+        <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <img src="/Assets/images/Main Logo_Main 1.png" alt="logo" height="200px" width="200px" >
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Home</a>
-                    <a href="/page/about us.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Who We Are</a>
-                    <a href="/page/services.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">What We Do</a>
-                    <a href="/page/insights.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Insights</a>
-                    <a href="/page/portfolio.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Our Work</a>
-                    <a href="/page/contact.html" class="px-6 py-3 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:shadow-lg transition duration-300 transform hover:-translate-y-0.5">
-                        Contact Us
+                    <a href="/index.html" class="flex items-center transform hover:scale-105 transition-all duration-300">
+                        <img src="/Assets/images/Main Logo_Main 1.png" alt="Blacklemur Innovations" class="h-12 w-auto">
                     </a>
                 </div>
-                <button @click="isOpen = !isOpen" class="md:hidden text-gray-700 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-                    </svg>
-                </button>
-            </div>
-            <!-- Mobile menu -->
-            <div class="md:hidden" x-show="isOpen" x-transition>
-                <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="/index.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
-                    <a href="/page/about us.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Who We Are</a>
-                    <a href="/page/services.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">What We Do</a>
-                    <a href="/page/insights.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Insights</a>
-                    <a href="/page/portfolio.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Our Work</a>
-                    <a href="/page/contact.html" class="block px-3 py-2 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-md">Contact Us</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">Home</a>
+                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">About Us</a>
+                    <a href="/page/services.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">What We Do</a>
+                    <a href="/page/portfolio.html" class="relative text-indigo-600 font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600">Our Portfolio</a>
+                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300">
+                        Let's Talk
+                    </a>
                 </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
     </nav>
-    </header>
-           
-    <body class="bg-slate-100 text-violet-800 dark:bg-gradient-to-tr from-indigo-800 to-violet-600 dark:text:white montserrat text-lg">
-    
-    <style>
-        /* Custom Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .fade-in { animation: fadeIn 0.8s ease forwards; }
-        .slide-up { animation: slideUp 0.8s ease-out forwards; }
-        .scale-hover:hover { transform: scale(1.05); }
-    </style>
 
-<!-- Hero Section with Background Image -->
-<section class="relative bg-cover bg-center h-screen overflow-hidden" id="hero" >
-    <div class="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 z-5"></div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="/index.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Home</a>
+            <a href="/page/about us.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">About Us</a>
+            <a href="/page/services.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">What We Do</a>
+            <a href="/page/portfolio.html" class="mobile-link text-2xl font-bold text-indigo-600">Our Portfolio</a>
+            <a href="https://wa.me/263786187218" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Contact</a>
+        </div>
+    </div>
 
-    <div class="relative flex items-center justify-center h-full text-center text-white z-20 px-4">
-        <div class="space-y-8">
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter  uppercase translate-y-10" >
-                We Stand In <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">Creativity</span>
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900"></div>
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
+            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-6 border border-white/20" data-aos="fade-down">
+                <i class="fas fa-eye text-indigo-300 mr-2"></i> Our Portfolio
+            </span>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                Work That
+                <span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-orange-400">Speaks</span>
+                <br>For Itself
             </h1>
-            <p class="text-xl md:text-3xl opacity-100 translate-y-2 max-w-3xl mx-auto" >Showcasing The Innovation And Excellence Behind Our Success Stories</p>
-            <div class="flex justify-center gap-4 opacity-100 translate-y-10" id="hero-dots">
-                <span class="w-3 h-3 bg-orange-400 rounded-full animate-pulse"></span>
-                <span class="w-3 h-3 bg-orange-600 rounded-full animate-pulse delay-100"></span>
-                <span class="w-3 h-3 bg-indigo-400 rounded-full animate-pulse delay-200"></span>
+            <p class="text-xl sm:text-2xl text-indigo-100 max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                Explore our latest projects showcasing creativity, innovation, and results-driven design.
+            </p>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="300">
+                <button class="filter-btn active px-6 py-3 bg-white text-indigo-900 rounded-full font-semibold hover:shadow-lg transition-all" data-filter="all">All Projects</button>
+                <button class="filter-btn px-6 py-3 bg-white/10 text-white rounded-full font-semibold hover:bg-white/20 transition-all" data-filter="branding">Branding</button>
+                <button class="filter-btn px-6 py-3 bg-white/10 text-white rounded-full font-semibold hover:bg-white/20 transition-all" data-filter="web">Web Design</button>
+                <button class="filter-btn px-6 py-3 bg-white/10 text-white rounded-full font-semibold hover:bg-white/20 transition-all" data-filter="marketing">Marketing</button>
             </div>
         </div>
-    </div>
-    
+    </section>
 
-</section>
-
-<!-- Portfolio Section -->
-<section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <h2 class="text-3xl md:text-4xl montserrat-alternates-bold  text-gray-800 text-center mb-12 fade-in">Our Work</h2>
-
-        <!-- Web Design Section -->
-        <div class="mb-12">
-            <h3 class="text-2xl montserrat-alternates-bold  text-indigo-800 mb-6">Web Design Projects</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Project Card 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/websites/7 arts Theatre.png" alt="7 Arts Theatre Avondale" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">7 Arts Theatre Avondale</h4>
-                    <p class="text-gray-600 mb-4">A responsive and modern website tailored to showcase 7arts Theatre Avondale brand effectively, accross all channels</p>
-                    <a href="https://7artstheatre.com/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/websites/takadah.png" alt="Takadah UK" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Takadah</h4>
-                    <p class="text-gray-600 mb-4">An e-commerce site designed to maximize user engagement and sales conversions.</p>
-                    <a href="https://takadah.co.uk/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/websites/classicre.png" alt="Classic Reinsurance Brokers" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Classic Reinsurance Brokers</h4>
-                    <p class="text-gray-600 mb-4">A corporate professional website with a focus on a sleek, professional design and intuitive layout.</p>
-                    <a href="https://classicre.co.zw/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                      <!-- Project Card 4 -->
-                      <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                        <img src="/Assets/images/projects/websites/Nature Extant.png" alt="Classic Reinsurance Brokers" class="rounded-lg mb-4 w-full">
-                        <h4 class="text-xl font-semibold text-gray-800">Nature Extant Learning Center</h4>
-                        <p class="text-gray-600 mb-4">An E-learning website for teh students to get access of information of the programs register while have the acessibility functionality to switch between dark and light theme.</p>
-                        <a href="https://natureextant.com/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                    </div>
-
-                              <!-- Project Card 5 -->
-                         <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                             <img src="/Assets/images/projects/websites/GPG.png" alt="Giant Petroleum Group" class="rounded-lg mb-4 w-full">
-                             <h4 class="text-xl font-semibold text-gray-800">Giant Petroleum Group</h4>
-                            <p class="text-gray-600 mb-4">A corporate website with a focus on a sleek, professional design and intuitive layout.</p>
-                            <a href="https://giantpetroleumgroup.co.za/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                       </div>
-
-                                  <!-- Project Card 5 -->
-                                  <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                                    <img src="/Assets/images/projects/websites/Hukoshwa.png" alt="Hukoshwa Contracting" class="rounded-lg mb-4 w-full">
-                                    <h4 class="text-xl font-semibold text-gray-800">Hukoshwa Contracting</h4>
-                                   <p class="text-gray-600 mb-4">A corporate website for a contruction company, with a focus on a sleek, professional design and intuitive layout.</p>
-                                   <a href="https://www.hukoshwa.com/" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                              </div>
-
-            </div>
-        </div>
-
-        <!-- Brand Design Section -->
-        <div>
-            <h3 class="text-2xl montserrat-alternates-bold  text-indigo-800 mb-6">Brand Design Projects</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Project Card 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/branding/Cruise Job.png" alt="Cruise Job Assist" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Cruise Job Assit</h4>
-                    <p class="text-gray-600 mb-4">Crafted a unique brand identity, including logo, color palette, and guidelines.</p>
-                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/branding/Frostice.png" alt="FrostIce" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Frost Ice </h4>
-                    <p class="text-gray-600 mb-4">Developed a cohesive brand strategy and design assets for the brand to use on digital marketing.</p>
-                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/branding/NELC.png" alt="Nature Extant" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Nature Extant</h4>
-                    <p class="text-gray-600 mb-4"> Designed a brand identity for a learning insititute, that it can be fitted in all corporate prints</p>
-                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/branding/Evolve Roofing.png" alt="Evolve Roofing" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Evolve Roofing</h4>
-                    <p class="text-gray-600 mb-4">Redesigned an existing brand to enhance visual consistency and appeal.</p>
-                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/branding/LexChem.png" alt="LexChem Pharmaceutical" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">LexChem Pharmaceutical</h4>
-                    <p class="text-gray-600 mb-4">Developed a cohesive brand strategy and design assets for digital marketing.</p>
-                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform duration-300 scale-hover">
-                    <img src="/Assets/images/projects/branding/Mujegra.png" alt="Mujegra Enterprises" class="rounded-lg mb-4 w-full">
-                    <h4 class="text-xl font-semibold text-gray-800">Mujegra Enterprises</h4>
-                    <p class="text-gray-600 mb-4">Developed a cohesive brand strategy and design assets for digital marketing.</p>
-                    <a href="https://www.behance.net/blacklemurs" target="_blank" class="text-indigo-800 font-semibold hover:underline">View Project</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- JavaScript for Animations -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const sections = document.querySelectorAll('.fade-in, .slide-up');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => observer.observe(section));
-    });
-</script>
-
-</body>
-
-<!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12 sm:py-16 px-4">
-            <div class="max-w-7xl mx-auto">
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12"
-                >
+    <!-- Portfolio Grid -->
+    <section class="py-20 sm:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Web Design Projects -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-2 h-12 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
                     <div>
-                        <div class="text-2xl sm:text-3xl font-black mb-6">
-                            <span class="text-indigo-400">BLACK</span
-                            ><span class="text-indigo-400">LEMUR</span>
-                        </div>
-                        <p class="text-gray-400 mb-6 text-sm sm:text-base">
-                            Africa's most creative advertising and marketing
-                            agency. We make brands unforgettable.
-                        </p>
-                        <div class="flex gap-4">
-                            <a
-                                href="https://web.facebook.com/blacklemurinnovation"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a
-                                href="https://x.com/blacklemurs1"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a
-                                href="https://www.instagram.com/theblproject"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a
-                                href="https://za.linkedin.com/company/blacklemurinnovations"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-linkedin-in"></i>
+                        <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Web Design Projects</h2>
+                        <p class="text-gray-600">Stunning websites that convert visitors into customers</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web">
+                        <img src="/Assets/images/projects/websites/7 arts Theatre.png" alt="7 Arts Theatre" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Web Development</span>
+                            <h3 class="text-white text-xl font-bold mb-2">7 Arts Theatre</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Modern web platform for performing arts venue</p>
+                            <a href="https://7artstheatre.com/" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="font-bold text-lg sm:text-xl mb-6">
-                            Services
-                        </h3>
-                        <ul
-                            class="space-y-3 text-gray-400 text-sm sm:text-base"
-                        >
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Brand Identity</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Advertising</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Web Development</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Marketing Strategy</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Content Creation</a
-                                >
-                            </li>
-                        </ul>
+                    <!-- Project 2 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web">
+                        <img src="/Assets/images/projects/websites/takadah.png" alt="Takadah" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">E-commerce</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Takadah</h3>
+                            <p class="text-indigo-100 text-sm mb-4">E-commerce solution for UK-based retailer</p>
+                            <a href="https://takadah.co.uk/" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <div>
-                        <h3 class="font-bold text-lg sm:text-xl mb-6">
-                            Company
-                        </h3>
-                        <ul
-                            class="space-y-3 text-gray-400 text-sm sm:text-base"
-                        >
-                            <li>
-                                <a
-                                    href="/page/about us.html"
-                                    class="hover:text-white transition-colors"
-                                    >About Us</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/portfolio.html"
-                                    class="hover:text-white transition-colors"
-                                    >Our Work</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="https://wa.me/263786187218"
-                                    class="hover:text-white transition-colors"
-                                    >Contact</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="mailto:info@blacklemur.co.zw"
-                                    class="hover:text-white transition-colors"
-                                    >Careers</a
-                                >
-                            </li>
-                        </ul>
+                    <!-- Project 3 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web">
+                        <img src="/Assets/images/projects/websites/classicre.png" alt="Classic Reinsurance" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Corporate Website</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Classic Reinsurance</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Professional website for insurance brokers</p>
+                            <a href="https://classicre.co.zw/" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
 
+                    <!-- Project 4 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web">
+                        <img src="/Assets/images/projects/websites/Nature Extant.png" alt="Nature Extant" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">E-learning Platform</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Nature Extant</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Interactive learning management system</p>
+                            <a href="https://natureextant.com/" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web">
+                        <img src="/Assets/images/projects/websites/GPG.png" alt="Giant Petroleum" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Corporate Website</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Giant Petroleum Group</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Energy sector corporate presence</p>
+                            <a href="https://giantpetroleumgroup.co.za/" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="web">
+                        <img src="/Assets/images/projects/websites/Hukoshwa.png" alt="Hukoshwa" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Corporate Website</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Hukoshwa Contracting</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Construction company portfolio</p>
+                            <a href="https://www.hukoshwa.com/" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branding Projects -->
+            <div data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-2 h-12 bg-gradient-to-b from-orange-500 to-red-500 rounded-full"></div>
                     <div>
-                        <h3 class="font-bold text-lg sm:text-xl mb-6">
-                            Get in Touch
-                        </h3>
-                        <ul
-                            class="space-y-3 text-gray-400 text-sm sm:text-base"
-                        >
-                            <li class="flex items-start gap-2">
-                                <i
-                                    class="fas fa-map-marker-alt mt-1 flex-shrink-0"
-                                ></i>
-                                <span
-                                    >33 Argyle Road, Avondale<br />Harare,
-                                    Zimbabwe</span
-                                >
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fas fa-envelope flex-shrink-0"></i>
-                                <a
-                                    href="mailto:info@blacklemur.co.zw"
-                                    class="hover:text-white transition-colors break-all"
-                                    >info@blacklemur.co.zw</a
-                                >
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fas fa-phone flex-shrink-0"></i>
-                                <a
-                                    href="tel:+263786187218"
-                                    class="hover:text-white transition-colors"
-                                    >+263 786 187 218</a
-                                >
-                            </li>
-                        </ul>
+                        <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Branding Projects</h2>
+                        <p class="text-gray-600">Memorable brand identities that stand out</p>
                     </div>
                 </div>
 
-                <div
-                    class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm sm:text-base"
-                >
-                    <p>
-                        &copy; 2026 Blacklemur Innovations. All rights reserved.
-                        Crafted with creativity and code.
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding">
+                        <img src="/Assets/images/projects/branding/Cruise Job.png" alt="Cruise Job" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Brand Identity</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Cruise Job Assist</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Complete brand transformation</p>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding">
+                        <img src="/Assets/images/projects/branding/Frostice.png" alt="FrostIce" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Brand Design</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Frost Ice</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Ice cream brand identity</p>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding">
+                        <img src="/Assets/images/projects/branding/NELC.png" alt="NELC" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Institutional Branding</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Nature Extant Learning</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Educational institution identity</p>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding">
+                        <img src="/Assets/images/projects/branding/Evolve Roofing.png" alt="Evolve Roofing" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Brand Redesign</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Evolve Roofing</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Construction brand transformation</p>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding">
+                        <img src="/Assets/images/projects/branding/LexChem.png" alt="LexChem" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Pharmaceutical Branding</span>
+                            <h3 class="text-white text-xl font-bold mb-2">LexChem</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Healthcare brand identity</p>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="portfolio-card group relative rounded-3xl overflow-hidden shadow-xl" data-category="branding">
+                        <img src="/Assets/images/projects/branding/Mujegra.png" alt="Mujegra" class="w-full h-72 object-cover transition-transform duration-500">
+                        <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent opacity-0 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="text-indigo-300 text-sm font-semibold mb-2">Enterprise Branding</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Mujegra Enterprises</h3>
+                            <p class="text-indigo-100 text-sm mb-4">Corporate identity system</p>
+                            <a href="https://www.behance.net/blacklemurs" target="_blank" class="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">150+</div>
+                    <div class="text-indigo-200">Projects Completed</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">50+</div>
+                    <div class="text-indigo-200">Happy Clients</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">8+</div>
+                    <div class="text-indigo-200">Years Experience</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">25+</div>
+                    <div class="text-indigo-200">Industries Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 sm:py-32 bg-white">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6" data-aos="fade-up">
+                Have a Project in <span class="text-gradient bg-clip-text text-transparent">Mind?</span>
+            </h2>
+            <p class="text-xl text-gray-600 mb-10" data-aos="fade-up" data-aos-delay="100">
+                Let's bring your vision to life. Get in touch for a free consultation and quote.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/263786187218" target="_blank" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Start a Project
+                </a>
+                <a href="/page/services.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300">
+                    View Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12">
+                <div>
+                    <div class="text-2xl sm:text-3xl font-black mb-6">
+                        <span class="text-indigo-400">BLACK</span><span class="text-indigo-400">LEMUR</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base">
+                        Africa's most creative advertising and marketing agency. We make brands unforgettable.
                     </p>
+                    <div class="flex gap-4">
+                        <a href="https://web.facebook.com/blacklemurinnovation" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/blacklemurs1" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/theblproject" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://za.linkedin.com/company/blacklemurinnovations" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl mb-6">Services</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li><a href="/page/services.html" class="hover:text-white transition-colors">Brand Identity</a></li>
+                        <li><a href="/page/services.html" class="hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="/page/services.html" class="hover:text-white transition-colors">UI/UX Design</a></li>
+                        <li><a href="/page/services.html" class="hover:text-white transition-colors">Digital Marketing</a></li>
+                        <li><a href="/page/services.html" class="hover:text-white transition-colors">App Development</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl mb-6">Company</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li><a href="/page/about us.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="/page/portfolio.html" class="hover:text-white transition-colors">Our Work</a></li>
+                        <li><a href="https://wa.me/263786187218" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="mailto:info@blacklemur.co.zw" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl mb-6">Get in Touch</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-map-marker-alt mt-1 flex-shrink-0"></i>
+                            <span>33 Argyle Road, Avondale<br>Harare, Zimbabwe</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope flex-shrink-0"></i>
+                            <a href="mailto:info@blacklemur.co.zw" class="hover:text-white transition-colors">info@blacklemur.co.zw</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone flex-shrink-0"></i>
+                            <a href="tel:+263786187218" class="hover:text-white transition-colors">+263 786 187 218</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-        <!--End of footer-->
 
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm sm:text-base">
+                <p>&copy; 2026 Blacklemur Innovations. All rights reserved. Crafted with creativity and code.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'text-indigo-900');
+                    b.classList.add('bg-white/10', 'text-white');
+                });
+                btn.classList.remove('bg-white/10', 'text-white');
+                btn.classList.add('bg-white', 'text-indigo-900');
+
+                // Filter cards
+                const filter = btn.dataset.filter;
+                portfolioCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
+</body>
 </html>

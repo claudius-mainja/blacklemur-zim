@@ -3,397 +3,1054 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your compelling description here">
-    <title>Blacklemur Innovations</title>
+    <meta name="description" content="Blacklemur Innovations - Zimbabwe's premier creative design agency offering brand identity, web design, UI/UX, digital marketing, and app development services.">
+    <title>What We Do | Blacklemur Innovations - Creative Design Agency</title>
     
-    <!-- Open Graph tags for social sharing -->
-    <meta property="article:author" content="Claudius Mainja- Product and Brand Designer/Web Developer">
-    <meta property="og:title" content="Blacklemur Innovations">
-    <meta property="og:description" content="a Zimbabwe's premier creative agency delivering innovative solutions for forward-thinking brands.">
     <link rel="icon" type="image/x-icon" href="/Assets/images/icon.jpeg">
-    <link rel="icon" type="image/x-icon" href="/Assets/images/icon.jpeg">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
+    <style type="text/tailwindcss">
+        @layer base {
+            * {
+                font-family: "Montserrat", sans-serif;
+            }
+        }
+        @layer utilities {
+            .text-gradient {
+                background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #f97316 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .bg-gradient-custom {
+                background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .service-card:hover .service-icon {
+                transform: scale(1.1) rotate(5deg);
+            }
+            .process-line {
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, #4f46e5, #9333ea);
+                z-index: 0;
+            }
+            .hover-lift:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25);
+            }
+        }
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .process-step {
+            transition: all 0.3s ease;
+        }
+        .process-step:hover {
+            transform: scale(1.05);
+        }
+        .price-tag {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-
-
-<header>
-
+<body class="bg-slate-50 overflow-x-hidden">
+    
     <!-- Navigation -->
-    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 shadow-sm transition-all duration-300 montserrat text-lg" 
-         x-data="{ isOpen: false, atTop: true }" 
-         @scroll.window="atTop = (window.pageYOffset > 20) ? false : true"
-         :class="{'py-2': !atTop, 'py-4': atTop}">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/90 border-b border-indigo-100">
+        <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <img src="/Assets/images/Main Logo_Main 1.png" alt="logo" height="200px" width="200px" >
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Home</a>
-                    <a href="/page/about us.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Who We Are</a>
-                    <a href="/page/services.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">What We Do</a>
-                    <a href="/page/insights.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Insights</a>
-                    <a href="/page/portfolio.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Our Work</a>
-                    <a href="/page/contact.html" class="px-6 py-3 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:shadow-lg transition duration-300 transform hover:-translate-y-0.5">
-                        Contact Us
+                    <a href="/index.html" class="flex items-center transform hover:scale-105 transition-all duration-300">
+                        <img src="/Assets/images/Main Logo_Main 1.png" alt="Blacklemur Innovations" class="h-12 w-auto">
                     </a>
                 </div>
-                <button @click="isOpen = !isOpen" class="md:hidden text-gray-700 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-                    </svg>
-                </button>
-            </div>
-            <!-- Mobile menu -->
-            <div class="md:hidden" x-show="isOpen" x-transition>
-                <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="/index.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
-                    <a href="/page/about us.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Who We Are</a>
-                    <a href="/page/services.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">What We Do</a>
-                    <a href="/page/insights.html" class="text-indigo-800 hover:text-indigo-600 transition-colors">Insights</a>
-                    <a href="/page/portfolio.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Our Work</a>
-                    <a href="/page/contact.html" class="block px-3 py-2 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-md">Contact Us</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">Home</a>
+                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">About Us</a>
+                    <a href="/page/services.html" class="relative text-indigo-600 font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600">What We Do</a>
+                    <a href="/page/portfolio.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">Our Portfolio</a>
+                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300">
+                        Let's Talk
+                    </a>
                 </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
     </nav>
-    </header>
 
-        <style>
-            /* Custom Animations */
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-            @keyframes slideUp {
-                from { transform: translateY(20px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            .fade-in { animation: fadeIn 0.8s ease forwards; }
-            .slide-up { animation: slideUp 0.8s ease-out forwards; }
-            .scale-hover:hover { transform: scale(1.05); }
-        </style>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="/index.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Home</a>
+            <a href="/page/about us.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">About Us</a>
+            <a href="/page/services.html" class="mobile-link text-2xl font-bold text-indigo-600">What We Do</a>
+            <a href="/page/portfolio.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Our Portfolio</a>
+            <a href="https://wa.me/263786187218" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Contact</a>
+        </div>
+    </div>
 
-    <body class="bg-slate-100 text-violet-800 dark:bg-gradient-to-tr from-indigo-800 to-violet-600  dark:text:white montserrat text-lg">
-    
-    <section class="relative bg-cover bg-center h-screen overflow-hidden" id="hero" >
-        <div class="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 z-5"></div>
-
-        <div class="relative flex items-center justify-center h-full text-center text-white z-20 px-4">
-            <div class="space-y-8">
-                <h1 class="text-5xl md:text-7xl font-black tracking-tighter  uppercase translate-y-10" >
-                    We Stand In <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">Excellence</span>
-                </h1>
-                <p class="text-xl md:text-3xl opacity-100 translate-y-2 max-w-3xl mx-auto" >Delivering Innovative Digital Solutions That Transform Your Business</p>
-                <div class="flex justify-center gap-4 opacity-100 translate-y-10" id="hero-dots">
-                    <span class="w-3 h-3 bg-orange-400 rounded-full animate-pulse"></span>
-                    <span class="w-3 h-3 bg-orange-600 rounded-full animate-pulse delay-100"></span>
-                    <span class="w-3 h-3 bg-indigo-400 rounded-full animate-pulse delay-200"></span>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900"></div>
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
+            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
         </div>
         
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-6 border border-white/20" data-aos="fade-down">
+                <i class="fas fa-star text-yellow-400 mr-2"></i> Zimbabwe's Premier Design Agency
+            </div>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                Crafting
+                <span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-orange-400">Experiences</span>
+                <br>That Convert
+            </h1>
+            <p class="text-xl sm:text-2xl text-indigo-100 max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                From bold brand identities to stunning digital experiences, we design things that make people stop, stare, and take action.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="#services" class="px-8 py-4 bg-white text-indigo-900 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    Explore Our Services
+                </a>
+                <a href="https://wa.me/263786187218" target="_blank" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-indigo-900 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Get a Quote
+                </a>
+            </div>
 
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-2">150+</div>
+                    <div class="text-indigo-200 text-sm">Projects Delivered</div>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-2">8+</div>
+                    <div class="text-indigo-200 text-sm">Years Experience</div>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-2">50+</div>
+                    <div class="text-indigo-200 text-sm">Happy Clients</div>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-2">24/7</div>
+                    <div class="text-indigo-200 text-sm">Support</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-8 h-14 border-2 border-white/50 rounded-full flex justify-center pt-2">
+                <div class="w-2 h-4 bg-white rounded-full animate-pulse"></div>
+            </div>
+        </div>
     </section>
-     
-    <!-- Services Section -->
-    <section class="py-16 bg-white w-full">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
-    
-            <!-- Service 1: Brand Design -->
-            <div class="grid md:grid-cols-2 gap-8 items-center mb-12 bg-gradient-to-tr from-indigo-800 to-violet-600 text-white">
-                <div class="fade-in">
-                    <img src="/Assets/images/services/Brand Design.png" alt="Brand Design" class="w-full rounded-lg shadow-lg scale-hover transition duration-300">
-                </div>
-                <div class="space-y-4 slide-up">
-                    <h3 class="text-2xl montserrat-alternates-bold  text-white">Brand Design and Development</h3>
-                    <p class="text-white">Our focus is on Crafting unique brand identities that make a lasting impression. Therefore Our team delivers impactful, cohesive branding to help you stand out in the market.</p>
-                    <a href="https://wa.me/message/Z6LNRPLPU7ERO1" target="_blank">
-                    <button class="px-6 py-2 mt-4 bg-slate-100 text-violet-800 rounded-md hover:bg-orange-500 hover:text-white transition duration-300">Get a Quote</button>
-                </a>
-                </div>
+
+    <!-- Services Overview -->
+    <section id="services" class="py-20 sm:py-32 px-4 bg-gradient-to-b from-white to-indigo-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4" data-aos="fade-down">OUR EXPERTISE</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6" data-aos="fade-up">
+                    Services That <span class="text-gradient bg-clip-text text-transparent">Drive Results</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    We don't just design – we create strategic solutions that transform your brand and accelerate your business growth.
+                </p>
             </div>
-    
-            <!-- Service 2: Web Design -->
-            <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-                <div class="order-2 md:order-1 space-y-4 slide-up">
-                    <h3 class="text-2xl montserrat-alternates-bold  text-gray-800">Website Design and Development</h3>
-                    <p class="text-gray-600">Tired of mediocre websites that does not bring in results, We build  responsive and engaging websites that reflect your brand and captivate audiences. We prioritize user experience and creativity in every design.</p>
-                    <a href="https://wa.me/message/Z6LNRPLPU7ERO1" target="_blank">
-                    <button class="px-6 py-2 mt-4 bg-gradient-to-tr from-indigo-800 to-violet-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">Get a Quote</button>
-                </a>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Brand Identity -->
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                    <div class="p-8">
+                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                            <i class="fas fa-palette text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">Brand Identity</h3>
+                        <p class="text-gray-600 mb-4">Complete brand development from logo design to comprehensive brand guidelines that make you unforgettable.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Logo Design</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Brand Guidelines</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Visual Identity</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="price-tag text-2xl font-black">From $350</span>
+                            <a href="#brand-identity" class="text-indigo-600 font-semibold hover:text-indigo-800 flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="fade-in order-1 md:order-2">
-                    <img src="/Assets/images/services/web design.png" alt="Web Design" class="w-full rounded-lg shadow-lg scale-hover transition duration-300">
+
+                <!-- Web Design -->
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+                    <div class="p-8">
+                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                            <i class="fas fa-laptop-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Web Design & Development</h3>
+                        <p class="text-gray-600 mb-4">Stunning, responsive websites that look amazing on every device and convert visitors into customers.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Custom Websites</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> E-commerce Solutions</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> CMS Integration</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="price-tag text-2xl font-black">From $600</span>
+                            <a href="#web-design" class="text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-    
-            <!-- Service 3: Digital Marketing -->
-            <div class="grid md:grid-cols-2 gap-8 items-center mb-12  bg-gradient-to-tr from-indigo-800 to-violet-600 text-white">
-                <div class="fade-in">
-                    <img src="/Assets/images/services/Digital Marketing.png" alt="Digital Marketing" class="w-full rounded-lg shadow-lg scale-hover transition duration-300">
+
+                <!-- UI/UX Design -->
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-rose-500"></div>
+                    <div class="p-8">
+                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                            <i class="fas fa-fingerprint text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors">UI/UX Design</h3>
+                        <p class="text-gray-600 mb-4">Intuitive user interfaces and experiences that keep users engaged and coming back for more.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Mobile App Design</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> User Research</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Prototyping</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="price-tag text-2xl font-black">From $500</span>
+                            <a href="#ui-ux" class="text-pink-600 font-semibold hover:text-pink-800 flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="space-y-4 slide-up">
-                    <h3 class="text-2xl montserrat-alternates-bold  text-white">Digital Marketing Strategies and Solutions</h3>
-                    <p class="text-white">We can help boost your online presence with tailored marketing strategies that drive growth. From social media to SEO, we make sure your brand gets noticed in the market.</p>
-                    <a href="https://wa.me/message/Z6LNRPLPU7ERO1" target="_blank">
-                        <button class="px-6 py-2 mt-4 bg-slate-100 text-violet-800 rounded-md hover:bg-orange-500 hover:text-white transition duration-300">Get a Quote</button>
-                    </a>
+
+                <!-- Digital Marketing -->
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 to-teal-500"></div>
+                    <div class="p-8">
+                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                            <i class="fas fa-bullhorn text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">Digital Marketing</h3>
+                        <p class="text-gray-600 mb-4">Strategic campaigns that amplify your brand presence and drive measurable business growth.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Social Media Marketing</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> SEO Optimization</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Content Strategy</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="price-tag text-2xl font-black">From $300/mo</span>
+                            <a href="#digital-marketing" class="text-green-600 font-semibold hover:text-green-800 flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-    
-            <!-- Service 4: Application Development -->
-            <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-                <div class="order-2 md:order-1 space-y-4 slide-up">
-                    <h3 class="text-2xl montserrat-alternates-bold  text-gray-800">Application Design and Development</h3>
-                    <p class="text-gray-600">As an innovation company we Develope reliable, scalable applications tailored to your business needs. From concept to launch, we ensure every app meets our high standards.</p>
-                    <a href="https://wa.me/message/Z6LNRPLPU7ERO1" target="_blank">
-                    <button class="px-6 py-2 mt-4 bg-gradient-to-tr from-indigo-800 to-violet-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">Get a Quote</button>
-                </a>
+
+                <!-- App Development -->
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="500">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-red-500"></div>
+                    <div class="p-8">
+                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">App Development</h3>
+                        <p class="text-gray-600 mb-4">Custom mobile applications built with cutting-edge technology for iOS and Android platforms.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> iOS Development</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Android Development</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Cross-platform Apps</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="price-tag text-2xl font-black">From $1,500</span>
+                            <a href="#app-development" class="text-orange-600 font-semibold hover:text-orange-800 flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="fade-in order-1 md:order-2">
-                    <img src="/Assets/images/services/App design.png" alt="Application Development" class="w-full rounded-lg shadow-lg scale-hover transition duration-300">
-                </div>
-            </div>
-    
-            <!-- Service 5: UI/UX Design -->
-            <div class="grid md:grid-cols-2 gap-8 items-center mb-12  bg-gradient-to-tr from-indigo-800 to-violet-600 text-white">
-                <div class="fade-in">
-                    <img src="/Assets/images/services/UIUX Design.png" alt="UI/UX Design" class="w-full rounded-lg shadow-lg scale-hover transition duration-300">
-                </div>
-                <div class="space-y-4 slide-up">
-                    <h3 class="text-2xl montserrat-alternates-bold  text-white">UI/UX Design</h3>
-                    <p class="text-white">As an innovation company, we design intuitive and beautiful interfaces that improve user experience. We ensure that every touchpoint leaves a positive impression on your users.</p>
-                    <a href="https://wa.me/message/Z6LNRPLPU7ERO1" target="_blank">
-                        <button class="px-6 py-2 mt-4 bg-slate-100 text-violet-800 rounded-md hover:bg-orange-500 hover:text-white transition duration-300">Get a Quote</button>
-                    </a>
-                </div>
-            </div>
-    
-            <!-- Service 6: Data Solutions image 600by400-->
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="order-2 md:order-1 space-y-4 slide-up">
-                    <h3 class="text-2xl montserrat-alternates-bold  text-gray-800">Data Solutions</h3>
-                    <p class="text-gray-600">We believe in transforming data into actionable insights that drive strategic decisions. We provide data solutions that empower you to make informed choices.</p>
-             <a href="https://wa.me/message/Z6LNRPLPU7ERO1" target="_blank">
-                    <button class="px-6 py-2 mt-4 bg-gradient-to-tr from-indigo-800 to-violet-600 text-white rounded-md hover:bg-orange-500 hover:text-white transition duration-300">Get a Quote</button>
-                </a>
-                </div>
-                <div class="fade-in order-1 md:order-2">
-                    <img src="/Assets/images/services/Data Solutions.png" alt="Data Solutions" class="w-full rounded-lg shadow-lg scale-hover transition duration-300">
+
+                <!-- Data Solutions -->
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="600">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                    <div class="p-8">
+                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">Data Solutions</h3>
+                        <p class="text-gray-600 mb-4">Transform raw data into actionable insights that drive informed business decisions.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Data Analytics</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Business Intelligence</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Data Visualization</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="price-tag text-2xl font-black">From $400</span>
+                            <a href="#data-solutions" class="text-cyan-600 font-semibold hover:text-cyan-800 flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- JavaScript for Animations -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.fade-in, .slide-up');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-    
-            sections.forEach(section => observer.observe(section));
-        });
-    </script>
-    
-    </body>
 
-        <!-- Footer starts here -->
-        <footer class="bg-gray-900 text-white py-12 sm:py-16 px-4">
-            <div class="max-w-7xl mx-auto">
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12"
-                >
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-black mb-6">
-                            <span class="text-indigo-400">BLACK</span
-                            ><span class="text-indigo-400">LEMUR</span>
+    <!-- Detailed Service Sections -->
+
+    <!-- Brand Identity -->
+    <section id="brand-identity" class="py-20 sm:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-purple-900"></div>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-500 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div data-aos="fade-right">
+                    <span class="inline-block px-4 py-2 bg-white/10 text-indigo-300 rounded-full text-sm font-semibold mb-4">BRAND IDENTITY</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                        Make Your Brand <span class="text-gradient bg-clip-text text-transparent">Unforgettable</span>
+                    </h2>
+                    <p class="text-lg text-indigo-100 mb-8 leading-relaxed">
+                        Your brand is more than just a logo – it's the entire perception people have of your business. We create comprehensive brand identities that capture your essence and resonate with your target audience.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-search text-indigo-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Brand Discovery</h4>
+                                <p class="text-indigo-200 text-sm">We dive deep into understanding your business, values, and goals.</p>
+                            </div>
                         </div>
-                        <p class="text-gray-400 mb-6 text-sm sm:text-base">
-                            Africa's most creative advertising and marketing
-                            agency. We make brands unforgettable.
-                        </p>
-                        <div class="flex gap-4">
-                            <a
-                                href="https://web.facebook.com/blacklemurinnovation"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a
-                                href="https://x.com/blacklemurs1"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a
-                                href="https://www.instagram.com/theblproject"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a
-                                href="https://za.linkedin.com/company/blacklemurinnovations"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110"
-                            >
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-pen-nib text-indigo-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Visual Design</h4>
+                                <p class="text-indigo-200 text-sm">Crafting logos, colors, and typography that tell your story.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-book text-indigo-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Brand Guidelines</h4>
+                                <p class="text-indigo-200 text-sm">Comprehensive documentation to maintain consistency.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Steps -->
+                    <div class="mb-8">
+                        <h4 class="text-white font-bold mb-4">Our Process</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">1. Discovery</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">2. Research</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">3. Design</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">4. Refine</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">5. Launch</span>
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="font-bold text-lg sm:text-xl mb-6">
-                            Services
-                        </h3>
-                        <ul
-                            class="space-y-3 text-gray-400 text-sm sm:text-base"
-                        >
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Brand Identity</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Advertising</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Web Development</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Marketing Strategy</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/services.html"
-                                    class="hover:text-white transition-colors"
-                                    >Content Creation</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="font-bold text-lg sm:text-xl mb-6">
-                            Company
-                        </h3>
-                        <ul
-                            class="space-y-3 text-gray-400 text-sm sm:text-base"
-                        >
-                            <li>
-                                <a
-                                    href="/page/about us.html"
-                                    class="hover:text-white transition-colors"
-                                    >About Us</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="/page/portfolio.html"
-                                    class="hover:text-white transition-colors"
-                                    >Our Work</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="https://wa.me/263786187218"
-                                    class="hover:text-white transition-colors"
-                                    >Contact</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="mailto:info@blacklemur.co.zw"
-                                    class="hover:text-white transition-colors"
-                                    >Careers</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="font-bold text-lg sm:text-xl mb-6">
-                            Get in Touch
-                        </h3>
-                        <ul
-                            class="space-y-3 text-gray-400 text-sm sm:text-base"
-                        >
-                            <li class="flex items-start gap-2">
-                                <i
-                                    class="fas fa-map-marker-alt mt-1 flex-shrink-0"
-                                ></i>
-                                <span
-                                    >33 Argyle Road, Avondale<br />Harare,
-                                    Zimbabwe</span
-                                >
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fas fa-envelope flex-shrink-0"></i>
-                                <a
-                                    href="mailto:info@blacklemur.co.zw"
-                                    class="hover:text-white transition-colors break-all"
-                                    >info@blacklemur.co.zw</a
-                                >
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fas fa-phone flex-shrink-0"></i>
-                                <a
-                                    href="tel:+263786187218"
-                                    class="hover:text-white transition-colors"
-                                    >+263 786 187 218</a
-                                >
-                            </li>
-                        </ul>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Brand Identity services" target="_blank" class="px-8 py-4 bg-white text-indigo-900 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center">
+                            Start Your Project
+                        </a>
+                        <a href="/page/portfolio.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-indigo-900 transition-all duration-300 text-center">
+                            View Portfolio
+                        </a>
                     </div>
                 </div>
-
-                <div
-                    class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm sm:text-base"
-                >
-                    <p>
-                        &copy; 2026 Blacklemur Innovations. All rights reserved.
-                        Crafted with creativity and code.
-                    </p>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/Assets/images/services/Brand Design.png" alt="Brand Identity Design" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-black text-indigo-600">$350+</div>
+                        <div class="text-gray-500 text-sm">Starting Price</div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-orange-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
             </div>
-        </footer>
-        <!--End of footer-->
+        </div>
+    </section>
 
-    </html>
-    
+    <!-- Web Design -->
+    <section id="web-design" class="py-20 sm:py-32 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1 relative" data-aos="fade-right">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/Assets/images/services/web design.png" alt="Web Design & Development" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-black text-white">$600+</div>
+                        <div class="text-blue-100 text-sm">Starting Price</div>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-purple-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
+                </div>
+                
+                <div class="order-1 lg:order-2" data-aos="fade-left">
+                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">WEB DESIGN</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+                        Websites That <span class="text-gradient bg-clip-text text-transparent">Convert</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Your website is your 24/7 salesperson. We build stunning, fast, and conversion-focused websites that turn visitors into loyal customers.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-desktop text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Custom Design</h4>
+                                <p class="text-gray-500 text-sm">Unique designs tailored to your brand personality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-mobile text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Responsive</h4>
+                                <p class="text-gray-500 text-sm">Flawless experience on all devices and screen sizes.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-rocket text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Fast Performance</h4>
+                                <p class="text-gray-500 text-sm">Optimized for speed and search engine rankings.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Steps -->
+                    <div class="mb-8">
+                        <h4 class="text-gray-900 font-bold mb-4">Our Process</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">1. Brief</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">2. Wireframe</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">3. Design</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">4. Develop</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">5. Test</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Web Design services" target="_blank" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 text-center">
+                            Get a Quote
+                        </a>
+                        <a href="/page/portfolio.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 text-center">
+                            See Our Work
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI/UX Design -->
+    <section id="ui-ux" class="py-20 sm:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-pink-900 to-rose-900"></div>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-pink-500 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div data-aos="fade-right">
+                    <span class="inline-block px-4 py-2 bg-white/10 text-pink-300 rounded-full text-sm font-semibold mb-4">UI/UX DESIGN</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                        Experiences That <span class="text-gradient bg-clip-text text-transparent">Engage</span>
+                    </h2>
+                    <p class="text-lg text-pink-100 mb-8 leading-relaxed">
+                        Great UX is invisible. We design intuitive interfaces that feel natural and delightful, keeping users engaged and driving conversions.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-users text-pink-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">User Research</h4>
+                                <p class="text-pink-200 text-sm">Understanding your users' needs and behaviors.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-sitemap text-pink-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Information Architecture</h4>
+                                <p class="text-pink-200 text-sm">Structuring content for optimal user flow.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-paint-brush text-pink-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Visual Design</h4>
+                                <p class="text-pink-200 text-sm">Beautiful interfaces that users love to interact with.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Steps -->
+                    <div class="mb-8">
+                        <h4 class="text-white font-bold mb-4">Our Process</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">1. Research</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">2. Wireframe</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">3. Prototype</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">4. Test</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">5. Launch</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263786187218?text=I'm interested in UI/UX Design services" target="_blank" class="px-8 py-4 bg-white text-pink-600 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center">
+                            Design My App
+                        </a>
+                        <a href="/page/portfolio.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-pink-600 transition-all duration-300 text-center">
+                            View Case Studies
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/Assets/images/services/UIUX Design.png" alt="UI/UX Design" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-black text-pink-600">$500+</div>
+                        <div class="text-gray-500 text-sm">Starting Price</div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-yellow-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing -->
+    <section id="digital-marketing" class="py-20 sm:py-32 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-20 w-96 h-96 bg-green-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-teal-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1 relative" data-aos="fade-right">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/Assets/images/services/Digital Marketing.png" alt="Digital Marketing" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-black text-white">$300<span class="text-sm font-normal">/mo</span></div>
+                        <div class="text-green-100 text-sm">Starting Price</div>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-orange-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
+                </div>
+                
+                <div class="order-1 lg:order-2" data-aos="fade-left">
+                    <span class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">DIGITAL MARKETING</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+                        Grow Your <span class="text-gradient bg-clip-text text-transparent">Presence</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Stand out in the digital crowd with data-driven marketing strategies that reach your audience and deliver measurable results.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fab fa-instagram text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Social Media</h4>
+                                <p class="text-gray-500 text-sm">Engaging content that builds community.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-search text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">SEO</h4>
+                                <p class="text-gray-500 text-sm">Rank higher and get found online.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-envelope text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Email Marketing</h4>
+                                <p class="text-gray-500 text-sm">Nurture leads into loyal customers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Steps -->
+                    <div class="mb-8">
+                        <h4 class="text-gray-900 font-bold mb-4">Our Process</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">1. Audit</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">2. Strategy</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">3. Create</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">4. Launch</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">5. Optimize</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Digital Marketing services" target="_blank" class="px-8 py-4 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-green-500/50 transform hover:scale-105 transition-all duration-300 text-center">
+                            Start Marketing
+                        </a>
+                        <a href="/page/contact.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 text-center">
+                            Talk to Experts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Development -->
+    <section id="app-development" class="py-20 sm:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-orange-900 to-red-900"></div>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-500 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div data-aos="fade-right">
+                    <span class="inline-block px-4 py-2 bg-white/10 text-orange-300 rounded-full text-sm font-semibold mb-4">APP DEVELOPMENT</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                        Apps That <span class="text-gradient bg-clip-text text-transparent">Deliver</span>
+                    </h2>
+                    <p class="text-lg text-orange-100 mb-8 leading-relaxed">
+                        Transform your business with custom mobile applications that provide seamless user experiences and drive engagement.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fab fa-apple text-orange-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">iOS Development</h4>
+                                <p class="text-orange-200 text-sm">Native apps for Apple devices.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fab fa-android text-orange-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Android Development</h4>
+                                <p class="text-orange-200 text-sm">Native apps for Android devices.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-code text-orange-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Cross-platform</h4>
+                                <p class="text-orange-200 text-sm">Efficient solutions for both platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Steps -->
+                    <div class="mb-8">
+                        <h4 class="text-white font-bold mb-4">Our Process</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">1. Concept</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">2. Design</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">3. Develop</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">4. Test</span>
+                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">5. Deploy</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263786187218?text=I'm interested in App Development services" target="_blank" class="px-8 py-4 bg-white text-orange-600 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center">
+                            Build My App
+                        </a>
+                        <a href="/page/contact.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 text-center">
+                            Discuss Project
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/Assets/images/services/App design.png" alt="App Development" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-orange-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-black text-orange-600">$1,500+</div>
+                        <div class="text-gray-500 text-sm">Starting Price</div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-purple-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Solutions -->
+    <section id="data-solutions" class="py-20 sm:py-32 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-20 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1 relative" data-aos="fade-right">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/Assets/images/services/Data Solutions.png" alt="Data Solutions" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-black text-white">$400+</div>
+                        <div class="text-cyan-100 text-sm">Starting Price</div>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-pink-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
+                </div>
+                
+                <div class="order-1 lg:order-2" data-aos="fade-left">
+                    <span class="inline-block px-4 py-2 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold mb-4">DATA SOLUTIONS</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+                        Insights That <span class="text-gradient bg-clip-text text-transparent">Drive Growth</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Turn your data into a competitive advantage. We help you collect, analyze, and visualize data to make smarter business decisions.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-database text-cyan-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Data Analytics</h4>
+                                <p class="text-gray-500 text-sm">Uncover patterns and trends in your data.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-chart-pie text-cyan-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Business Intelligence</h4>
+                                <p class="text-gray-500 text-sm">Dashboards that tell your data story.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-brain text-cyan-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-900 font-bold">Predictive Analytics</h4>
+                                <p class="text-gray-500 text-sm">Forecast future trends and outcomes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Process Steps -->
+                    <div class="mb-8">
+                        <h4 class="text-gray-900 font-bold mb-4">Our Process</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">1. Collect</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">2. Clean</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">3. Analyze</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">4. Visualize</span>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">5. Act</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Data Solutions services" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-cyan-500/50 transform hover:scale-105 transition-all duration-300 text-center">
+                            Get Insights
+                        </a>
+                        <a href="/page/contact.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 text-center">
+                            Talk to Experts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 sm:py-32 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
+            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-white/10 text-indigo-300 rounded-full text-sm font-semibold mb-4">WHY CHOOSE US</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    The <span class="text-gradient bg-clip-text text-transparent">Blacklemur</span> Advantage
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Creative Excellence</h3>
+                    <p class="text-indigo-200">Award-winning designs that capture attention and communicate your brand's unique story effectively.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Timely Delivery</h3>
+                    <p class="text-indigo-200">We understand deadlines matter. Your project is delivered on time, every time.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Dedicated Support</h3>
+                    <p class="text-indigo-200">24/7 support and ongoing maintenance to ensure your digital assets always perform at their best.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Results-Driven</h3>
+                    <p class="text-indigo-200">Every design is created with your business goals in mind. We measure success by your results.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Expert Team</h3>
+                    <p class="text-indigo-200">Years of combined experience across branding, design, development, and marketing.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Transparent Pricing</h3>
+                    <p class="text-indigo-200">No hidden fees. Clear, upfront pricing that delivers real value for your investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 sm:py-32 px-4 bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6" data-aos="fade-up">
+                Ready to Transform Your <span class="text-gradient bg-clip-text text-transparent">Brand?</span>
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                Let's create something extraordinary together. Get in touch for a free consultation and quote.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/263786187218" target="_blank" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="mailto:info@blacklemur.co.zw" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold text-lg hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fas fa-envelope"></i> Send Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12">
+                <div>
+                    <div class="text-2xl sm:text-3xl font-black mb-6">
+                        <span class="text-indigo-400">BLACK</span><span class="text-indigo-400">LEMUR</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base">
+                        Africa's most creative advertising and marketing agency. We make brands unforgettable.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://web.facebook.com/blacklemurinnovation" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/blacklemurs1" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/theblproject" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://za.linkedin.com/company/blacklemurinnovations" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all transform hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl mb-6">Services</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li><a href="#brand-identity" class="hover:text-white transition-colors">Brand Identity</a></li>
+                        <li><a href="#web-design" class="hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="#ui-ux" class="hover:text-white transition-colors">UI/UX Design</a></li>
+                        <li><a href="#digital-marketing" class="hover:text-white transition-colors">Digital Marketing</a></li>
+                        <li><a href="#app-development" class="hover:text-white transition-colors">App Development</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl mb-6">Company</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li><a href="/page/about us.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="/page/portfolio.html" class="hover:text-white transition-colors">Our Work</a></li>
+                        <li><a href="https://wa.me/263786187218" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="mailto:info@blacklemur.co.zw" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl mb-6">Get in Touch</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm sm:text-base">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-map-marker-alt mt-1 flex-shrink-0"></i>
+                            <span>33 Argyle Road, Avondale<br>Harare, Zimbabwe</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope flex-shrink-0"></i>
+                            <a href="mailto:info@blacklemur.co.zw" class="hover:text-white transition-colors">info@blacklemur.co.zw</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone flex-shrink-0"></i>
+                            <a href="tel:+263786187218" class="hover:text-white transition-colors">+263 786 187 218</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm sm:text-base">
+                <p>&copy; 2026 Blacklemur Innovations. All rights reserved. Crafted with creativity and code.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate service cards on scroll
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.6,
+                delay: i * 0.1
+            });
+        });
+    </script>
+</body>
+</html>
