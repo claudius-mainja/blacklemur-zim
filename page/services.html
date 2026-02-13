@@ -23,14 +23,14 @@
             }
         }
         @layer utilities {
-            .text-gradient {
-                background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #f97316 100%);
+            .text-gradient-orange {
+                background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
-            .bg-gradient-custom {
-                background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            .bg-gradient-brand {
+                background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
             }
             .glass-card {
                 background: rgba(255, 255, 255, 0.1);
@@ -40,18 +40,10 @@
             .service-card:hover .service-icon {
                 transform: scale(1.1) rotate(5deg);
             }
-            .process-line {
-                position: absolute;
-                top: 30px;
-                left: 50%;
-                width: 100%;
-                height: 2px;
-                background: linear-gradient(90deg, #4f46e5, #9333ea);
-                z-index: 0;
-            }
-            .hover-lift:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25);
+            .price-tag {
+                background: linear-gradient(135deg, #f97316, #ea580c);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
         .service-card {
@@ -60,23 +52,12 @@
         .service-card:hover {
             transform: translateY(-10px);
         }
-        .process-step {
-            transition: all 0.3s ease;
-        }
-        .process-step:hover {
-            transform: scale(1.05);
-        }
-        .price-tag {
-            background: linear-gradient(135deg, #4f46e5, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     </style>
 </head>
-<body class="bg-slate-50 overflow-x-hidden">
+<body class="bg-gray-50 overflow-x-hidden">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/90 border-b border-indigo-100">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/95 border-b border-gray-200">
         <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
@@ -85,11 +66,12 @@
                     </a>
                 </div>
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">Home</a>
-                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">About Us</a>
-                    <a href="/page/services.html" class="relative text-indigo-600 font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600">What We Do</a>
-                    <a href="/page/portfolio.html" class="relative text-gray-800 font-semibold hover:text-indigo-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">Our Portfolio</a>
-                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300">
+                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-orange-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300 hover:after:w-full">Home</a>
+                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-orange-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300 hover:after:w-full">About</a>
+                    <a href="/page/services.html" class="relative text-orange-600 font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-orange-600">What We Do</a>
+                    <a href="/page/portfolio.html" class="relative text-gray-800 font-semibold hover:text-orange-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300 hover:after:w-full">Work</a>
+                    <a href="/page/insights.html" class="relative text-gray-800 font-semibold hover:text-orange-600 transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300 hover:after:w-full">Insights</a>
+                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-brand text-white rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300">
                         Let's Talk
                     </a>
                 </div>
@@ -100,39 +82,40 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+        <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden">
         <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-3xl">
             <i class="fas fa-times"></i>
         </button>
-        <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="/index.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Home</a>
-            <a href="/page/about us.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">About Us</a>
-            <a href="/page/services.html" class="mobile-link text-2xl font-bold text-indigo-600">What We Do</a>
-            <a href="/page/portfolio.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Our Portfolio</a>
-            <a href="https://wa.me/263786187218" class="mobile-link text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">Contact</a>
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+            <a href="/index.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Home</a>
+            <a href="/page/about us.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">About</a>
+            <a href="/page/services.html" class="mobile-link text-2xl font-bold text-orange-600">What We Do</a>
+            <a href="/page/portfolio.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Work</a>
+            <a href="/page/insights.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Insights</a>
+            <a href="https://wa.me/263786187218" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Contact</a>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
         <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-            <div class="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
-            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-96 h-96 bg-orange-600 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
+            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-gray-600 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
         </div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-6 border border-white/20" data-aos="fade-down">
-                <i class="fas fa-star text-yellow-400 mr-2"></i> Zimbabwe's Premier Design Agency
+            <div class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-6 border border-orange-500/30" data-aos="fade-down">
+                <i class="fas fa-star text-orange-400 mr-2"></i> Zimbabwe's Premier Design Agency
             </div>
             <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
                 Crafting
-                <span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-orange-400">Experiences</span>
+                <span class="text-gradient-orange bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-500">Experiences</span>
                 <br>That Convert
             </h1>
-            <p class="text-xl sm:text-2xl text-indigo-100 max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
                 From bold brand identities to stunning digital experiences, we design things that make people stop, stare, and take action.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
@@ -148,19 +131,19 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
                 <div class="glass-card rounded-2xl p-6">
                     <div class="text-3xl sm:text-4xl font-black text-white mb-2">150+</div>
-                    <div class="text-indigo-200 text-sm">Projects Delivered</div>
+                    <div class="text-gray-400 text-sm">Projects Delivered</div>
                 </div>
                 <div class="glass-card rounded-2xl p-6">
                     <div class="text-3xl sm:text-4xl font-black text-white mb-2">8+</div>
-                    <div class="text-indigo-200 text-sm">Years Experience</div>
+                    <div class="text-gray-400 text-sm">Years Experience</div>
                 </div>
                 <div class="glass-card rounded-2xl p-6">
                     <div class="text-3xl sm:text-4xl font-black text-white mb-2">50+</div>
-                    <div class="text-indigo-200 text-sm">Happy Clients</div>
+                    <div class="text-gray-400 text-sm">Happy Clients</div>
                 </div>
                 <div class="glass-card rounded-2xl p-6">
                     <div class="text-3xl sm:text-4xl font-black text-white mb-2">24/7</div>
-                    <div class="text-indigo-200 text-sm">Support</div>
+                    <div class="text-gray-400 text-sm">Support</div>
                 </div>
             </div>
         </div>
@@ -174,36 +157,36 @@
     </section>
 
     <!-- Services Overview -->
-    <section id="services" class="py-20 sm:py-32 px-4 bg-gradient-to-b from-white to-indigo-50">
-        <div class="max-w-7xl mx-auto">
+    <section id="services" class="py-20 lg:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4" data-aos="fade-down">OUR EXPERTISE</span>
+                <span class="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4" data-aos="fade-down">OUR EXPERTISE</span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6" data-aos="fade-up">
-                    Services That <span class="text-gradient bg-clip-text text-transparent">Drive Results</span>
+                    Services That <span class="text-gradient-orange bg-clip-text text-transparent">Drive Results</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                     We don't just design – we create strategic solutions that transform your brand and accelerate your business growth.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Brand Identity -->
-                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-orange-600"></div>
                     <div class="p-8">
-                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
+                        <div class="service-icon w-16 h-16 bg-gradient-brand rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
                             <i class="fas fa-palette text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">Brand Identity</h3>
-                        <p class="text-gray-600 mb-4">Complete brand development from logo design to comprehensive brand guidelines that make you unforgettable.</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">Brand Identity</h3>
+                        <p class="text-gray-600 mb-4">Complete brand development from logo design to comprehensive brand guidelines.</p>
                         <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Logo Design</li>
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Brand Guidelines</li>
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Visual Identity</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-orange-500 mr-2"></i> Logo Design</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-orange-500 mr-2"></i> Brand Guidelines</li>
+                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-orange-500 mr-2"></i> Visual Identity</li>
                         </ul>
                         <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                             <span class="price-tag text-2xl font-black">From $350</span>
-                            <a href="#brand-identity" class="text-indigo-600 font-semibold hover:text-indigo-800 flex items-center gap-2">
+                            <a href="#brand-identity" class="text-orange-600 font-semibold hover:text-orange-700 flex items-center gap-2">
                                 Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
                             </a>
                         </div>
