@@ -53,29 +53,49 @@
             .service-card:hover {
                 transform: translateY(-10px);
             }
+            .logo-white { filter: brightness(0) invert(1); }
         }
     </style>
 </head>
 <body class="bg-gray-900 overflow-x-hidden">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/95 border-b border-gray-200">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-card border-b border-white/10">
         <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
                     <a href="/index.html" class="flex items-center transform hover:scale-105 transition-all duration-300">
-                        <img src="/Assets/images/Main Logo_Main 1.png" alt="Blacklemur Innovations" class="h-12 w-auto">
+                        <img src="/Assets/images/Main Logo_Main 1.png" alt="Blacklemur Innovations" class="h-12 w-auto logo-white">
                     </a>
                 </div>
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/index.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">HOME</a>
-                    <a href="/page/about us.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">ABOUT</a>
-                    <a href="/page/services.html" class="relative text-orange-600 font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-orange-600">SERVICES</a>
-                    <a href="/page/portfolio.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">WORK</a>
-                    <a href="/page/insights.html" class="relative text-gray-800 font-semibold hover:text-orange-600 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">INSIGHTS</a>
-                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-brand text-white rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105">LET'S TALK</a>
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="/index.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors">HOME</a>
+                    <div class="relative group">
+                        <a href="/page/services.html" class="relative text-orange-500 font-bold uppercase tracking-wider text-sm cursor-pointer flex items-center gap-1">
+                            SERVICES
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="glass-card rounded-xl overflow-hidden py-2">
+                                <a href="/page/services.html#brand-identity" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-white/5 uppercase text-xs">Brand Identity</a>
+                                <a href="/page/services.html#web-design" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-white/5 uppercase text-xs">Web Design</a>
+                                <a href="/page/services.html#hosting" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-white/5 uppercase text-xs">Domain & Hosting</a>
+                                <a href="/page/services.html#digital-marketing" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-white/5 uppercase text-xs">Digital Marketing</a>
+                                <a href="/page/services.html#app-development" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-white/5 uppercase text-xs">App Development</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/page/academy.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors">ACADEMY</a>
+                    <a href="/page/consulting.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors">CONSULTING</a>
+                        <a href="/page/hosting.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors">HOSTING</a>
+                        <a href="/page/about us.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full">ABOUT</a>
+                    <a href="/page/portfolio.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full">WORK</a>
+                    <a href="/page/insights.html" class="relative text-white font-semibold hover:text-orange-500 uppercase tracking-wider text-sm transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full">INSIGHTS</a>
+                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 bg-gradient-brand text-white rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 uppercase tracking-wider text-sm">
+                        Let's Talk
+                    </a>
                 </div>
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -83,38 +103,36 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden">
-        <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-3xl">
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 z-40 transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-white text-3xl">
             <i class="fas fa-times"></i>
         </button>
-        <div class="flex flex-col items-center justify-center h-full space-y-6">
-            <a href="/index.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Home</a>
-            <a href="/page/about us.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">About</a>
-            <a href="/page/services.html" class="mobile-link text-2xl font-bold text-orange-600">What We Do</a>
-            <a href="/page/portfolio.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Work</a>
-            <a href="/page/insights.html" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Insights</a>
-            <a href="https://wa.me/263786187218" class="mobile-link text-2xl font-bold text-gray-800 hover:text-orange-600">Contact</a>
+        <div class="flex flex-col items-center justify-center h-full space-y-4 pt-16 pb-8">
+            <a href="/index.html" class="mobile-link text-2xl font-bold text-white uppercase">HOME</a>
+            <a href="/page/services.html" class="mobile-link text-2xl font-bold text-orange-500 uppercase">SERVICES</a>
+            <a href="/page/academy.html" class="mobile-link text-2xl font-bold text-white uppercase">ACADEMY</a>
+            <a href="/page/consulting.html" class="mobile-link text-2xl font-bold text-white uppercase">CONSULTING</a>
+            <a href="/page/hosting.html" class="mobile-link text-2xl font-bold text-white hover:text-orange-500 uppercase">HOSTING</a>
+            <a href="/page/about us.html" class="mobile-link text-2xl font-bold text-white uppercase">ABOUT</a>
+            <a href="/page/portfolio.html" class="mobile-link text-2xl font-bold text-white uppercase">WORK</a>
+            <a href="/page/insights.html" class="mobile-link text-2xl font-bold text-white hover:text-orange-500 uppercase">INSIGHTS</a>
+            <a href="https://wa.me/263786187218" class="mobile-link text-2xl font-bold text-white uppercase mt-4 px-8 py-3 bg-gradient-brand rounded-full">CONTACT</a>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center min-h-[60vh] overflow-hidden pt-20">
         <div class="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 z-5"></div>
-        <div class="relative flex items-center justify-center h-full text-center text-white z-20 px-4 py-12">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-orange-600 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
+        </div>
+        <div class="relative flex items-center justify-center h-full text-center text-white z-20 px-4 py-16">
             <div class="space-y-4">
-                <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold border border-orange-500/30">
-                    <i class="fas fa-star text-orange-400 mr-2"></i> ZIMBABWE'S PREMIUM DESIGN AGENCY
-                </span>
                 <h1 class="text-4xl md:text-6xl font-black uppercase tracking-wide">
-                    WE CRAFT <span class="text-gradient-orange bg-clip-text text-transparent">EXPERIENCES</span><br>THAT CONVERT
+                    OUR <span class="text-gradient-orange bg-clip-text text-transparent">SERVICES</span>
                 </h1>
-                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">From bold brand identities to stunning digital experiences, we design things that make people stop, stare, and take action.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-                    <a href="#services" class="px-6 py-3 bg-white text-gray-900 rounded-full font-bold hover:shadow-lg transition">EXPLORE SERVICES</a>
-                    <a href="https://wa.me/263786187218" target="_blank" class="px-6 py-3 border-2 border-white rounded-full font-bold hover:bg-white hover:text-gray-900 transition flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp"></i> GET QUOTE
-                    </a>
-                </div>
+                <p class="text-lg md:text-2xl opacity-90 max-w-2xl mx-auto uppercase">EVERYTHING YOU NEED TO SUCCEED ONLINE</p>
                 <div class="flex justify-center gap-3 pt-2">
                     <span class="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></span>
                     <span class="w-3 h-3 bg-orange-600 rounded-full animate-pulse delay-100"></span>
@@ -707,6 +725,152 @@
         </div>
     </section>
 
+    <!-- Web Hosting Section -->
+    <section id="hosting" class="py-16 lg:py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4 border border-blue-500/30 uppercase tracking-wider">WEB HOSTING</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 uppercase">
+                    Complete <span class="text-gradient-orange bg-clip-text text-transparent">Hosting Solutions</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Fast, secure, and reliable hosting. Domain registration, website hosting, and professional email - all in one place.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Domain Names</h3>
+                    <p class="text-gray-400 text-sm mb-4">Secure your perfect domain. Free DNS management.</p>
+                    <span class="text-cyan-400 font-bold">From $12/yr</span>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-server text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Web Hosting</h3>
+                    <p class="text-gray-400 text-sm mb-4">Lightning-fast servers with 99.9% uptime.</p>
+                    <span class="text-orange-500 font-bold">From $5/mo</span>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-envelope text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Email Hosting</h3>
+                    <p class="text-gray-400 text-sm mb-4">Professional business email. yourname@domain.com</p>
+                    <span class="text-pink-400 font-bold">From $3/mo</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://wa.me/263786187218?text=I'm interested in hosting services" target="_blank" class="inline-block px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/50 transition-all duration-300 uppercase">
+                    Get Started <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academy Section -->
+    <section class="py-16 lg:py-24 bg-dark-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold mb-4 border border-green-500/30 uppercase tracking-wider">BLACKLEMUR ACADEMY</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 uppercase">
+                    Master <span class="text-gradient-orange bg-clip-text text-transparent">In-Demand Skills</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Hands-on training with expert tutors. One-on-one sessions or online classes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card glass-card-hover rounded-2xl p-5" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-xl flex items-center justify-center mb-3">
+                        <i class="fas fa-palette text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">Graphic Design</h3>
+                    <p class="text-gray-400 text-xs"></p>
+               Adobe Suite, typography </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3">
+                        <i class="fas fa-code text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">Web Development</h3>
+                    <p class="text-gray-400 text-xs">HTML, CSS, JavaScript, React</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-3">
+                        <i class="fas fa-bullhorn text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">Digital Marketing</h3>
+                    <p class="text-gray-400 text-xs">SEO, social media</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3">
+                        <i class="fas fa-shield-alt text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">Cybersecurity</h3>
+                    <p class="text-gray-400 text-xs">Ethical hacking, security</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://wa.me/263786187218?text=I'm interested in enrolling for a course" target="_blank" class="inline-block px-8 py-4 bg-green-600 text-white rounded-full font-bold hover:shadow-xl hover:shadow-green-500/50 transition-all duration-300 uppercase">
+                    Enroll Now <i class="fas fa-graduation-cap ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Section -->
+    <section class="py-16 lg:py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/30 uppercase tracking-wider">BUSINESS CONSULTING</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 uppercase">
+                    Transform Your <span class="text-gradient-orange bg-clip-text text-transparent">Business</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Expert consulting and training for digital solutions, marketing, and brand management.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-digital-tachograph text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Digital Solutions</h3>
+                    <p class="text-gray-400 text-sm">Digital strategy, automation, software consulting.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bullseye text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Marketing</h3>
+                    <p class="text-gray-400 text-sm">Strategy, campaign optimization, analytics.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-crown text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Brand Management</h3>
+                    <p class="text-gray-400 text-sm">Brand strategy, guidelines, rebranding.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://wa.me/263786187218?text=I'm interested in business consulting" target="_blank" class="inline-block px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/50 transition-all duration-300 uppercase">
+                    Get Consultation <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-16 lg:py-24 bg-gradient-brand">
         <div class="max-w-4xl mx-auto text-center px-6">
@@ -731,7 +895,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="text-2xl font-black mb-6 uppercase tracking-wider">
                         <span class="text-orange-500">BLACK</span><span class="text-orange-500">LEMUR</span>
@@ -740,68 +904,67 @@
                         Zimbabwe's premier creative design agency. We craft bold brands, stunning websites, and results-driven experiences that grow your business.
                     </p>
                     <div class="flex gap-3">
-                        <a href="https://web.facebook.com/blacklemurinnovation" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                        <a href="https://web.facebook.com/blacklemurinnovation" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://x.com/blacklemurs1" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                        <a href="https://x.com/blacklemurs1" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.instagram.com/theblproject" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                        <a href="https://www.instagram.com/theblproject" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://za.linkedin.com/company/blacklemurinnovations" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
+                        <a href="https://za.linkedin.com/company/blacklemurinnovations" target="_blank" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-orange-500 transition-all duration-300">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <h3 class="font-bold text-lg mb-6 uppercase tracking-wider">Services</h3>
+                    <a href="/page/services.html" class="block">
+                        <h3 class="font-bold text-lg mb-6 uppercase tracking-wider hover:text-orange-500 transition-colors">Services</h3>
+                    </a>
                     <ul class="space-y-3 text-gray-400 text-sm">
-                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Brand Identity</a></li>
-                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Web Design</a></li>
-                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Digital Marketing</a></li>
-                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">App Development</a></li>
-                        <li><a href="/page/services.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">UI/UX Design</a></li>
+                        <li><a href="/page/services.html#brand-identity" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Brand Identity</a></li>
+                        <li><a href="/page/services.html#web-design" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Web Design</a></li>
+                        <li><a href="/page/services.html#hosting" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Domain & Hosting</a></li>
+                        <li><a href="/page/services.html#digital-marketing" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Digital Marketing</a></li>
+                        <li><a href="/page/services.html#app-development" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">App Development</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="font-bold text-lg mb-6 uppercase tracking-wider">Company</h3>
+                    <a href="/page/academy.html" class="block">
+                        <h3 class="font-bold text-lg mb-6 uppercase tracking-wider hover:text-green-500 transition-colors">Academy</h3>
+                    </a>
                     <ul class="space-y-3 text-gray-400 text-sm">
-                        <li><a href="/page/about us.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">About Us</a></li>
-                        <li><a href="/page/portfolio.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Our Work</a></li>
-                        <li><a href="/page/insights.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Insights</a></li>
-                        <li><a href="/page/contact.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">Contact</a></li>
+                        <li><a href="/page/academy.html" class="hover:text-green-500 transition-colors uppercase text-xs tracking-wide">Graphic Design</a></li>
+                        <li><a href="/page/academy.html" class="hover:text-green-500 transition-colors uppercase text-xs tracking-wide">Web Development</a></li>
+                        <li><a href="/page/academy.html" class="hover:text-green-500 transition-colors uppercase text-xs tracking-wide">Digital Marketing</a></li>
+                        <li><a href="/page/academy.html" class="hover:text-green-500 transition-colors uppercase text-xs tracking-wide">Cybersecurity</a></li>
+                        <li><a href="/page/academy.html" class="hover:text-green-500 transition-colors uppercase text-xs tracking-wide">Programming</a></li>
+                        <li><a href="/page/academy.html" class="hover:text-green-500 transition-colors uppercase text-xs tracking-wide font-bold">Enroll Now</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="font-bold text-lg mb-6 uppercase tracking-wider">Get in Touch</h3>
-                    <ul class="space-y-4 text-gray-400 text-sm">
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-map-marker-alt text-orange-500 text-xs"></i>
-                            </div>
-                            <span class="uppercase text-xs tracking-wide leading-relaxed">33 Argyle Road,<br>Avondale, Harare,<br>Zimbabwe</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-orange-500 text-xs"></i>
-                            </div>
-                            <a href="mailto:info@blacklemur.co.zw" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">info@blacklemur.co.zw</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-orange-500 text-xs"></i>
-                            </div>
-                            <a href="tel:+263786187218" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide">+263 786 187 218</a>
-                        </li>
+                    <a href="/page/consulting.html" class="block">
+                        <h3 class="font-bold text-lg mb-6 uppercase tracking-wider hover:text-purple-500 transition-colors">Consulting</h3>
+                    </a>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/page/consulting.html" class="hover:text-purple-500 transition-colors uppercase text-xs tracking-wide">Digital Solutions</a></li>
+                        <li><a href="/page/consulting.html" class="hover:text-purple-500 transition-colors uppercase text-xs tracking-wide">Marketing Strategy</a></li>
+                        <li><a href="/page/consulting.html" class="hover:text-purple-500 transition-colors uppercase text-xs tracking-wide">Brand Management</a></li>
+                        <li><a href="/page/consulting.html" class="hover:text-purple-500 transition-colors uppercase text-xs tracking-wide">Corporate Training</a></li>
+                        <li><a href="/page/contact.html" class="hover:text-orange-500 transition-colors uppercase text-xs tracking-wide font-bold">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; 2026 Blacklemur Innovations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
                 <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; 2026 Blacklemur Innovations. All rights reserved.</p>
             </div>
         </div>
