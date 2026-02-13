@@ -33,28 +33,30 @@
                 background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
             }
             .glass-card {
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             }
-            .service-card:hover .service-icon {
-                transform: scale(1.1) rotate(5deg);
+            .glass-card-hover:hover {
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                box-shadow: 0 12px 40px rgba(249, 115, 22, 0.15);
             }
-            .price-tag {
-                background: linear-gradient(135deg, #f97316, #ea580c);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+            .bg-dark-gradient {
+                background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
             }
-        }
-        .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
+            .service-card {
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .service-card:hover {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 overflow-x-hidden">
+<body class="bg-gray-900 overflow-x-hidden">
     
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/95 border-b border-gray-200">
@@ -80,7 +82,7 @@
         </div>
     </nav>
 
-        <!-- Mobile Menu -->
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden">
         <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-800 text-3xl">
             <i class="fas fa-times"></i>
@@ -123,7 +125,7 @@
     </section>
 
     <!-- Stats -->
-    <section class="py-8 bg-gray-900">
+    <section class="py-8 bg-gray-800">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div><div class="text-2xl md:text-3xl font-black text-orange-500">150+</div><div class="text-gray-400 text-xs uppercase">PROJECTS</div></div>
@@ -135,86 +137,122 @@
     </section>
 
     <!-- Services Overview -->
-    <section id="services" class="py-12 lg:py-16 bg-gray-50">
+    <section id="services" class="py-16 lg:py-24 bg-dark-gradient">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-8">
-                <span class="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-2">OUR EXPERTISE</span>
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-2 uppercase">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-4 border border-orange-500/30 uppercase tracking-wider">OUR EXPERTISE</span>
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4 uppercase">
                     Services That <span class="text-gradient-orange bg-clip-text text-transparent">Drive Results</span>
                 </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm">We don't just design – we create strategic solutions that transform your brand and accelerate your business growth.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">We don't just design – we create strategic solutions that transform your brand and accelerate your business growth.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Brand Identity -->
-                <div class="service-card group relative bg-white rounded-2xl shadow-md hover:shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-orange-500 to-orange-600"></div>
-                    <div class="p-6">
-                        <div class="service-icon w-12 h-12 bg-gradient-brand rounded-xl flex items-center justify-center mb-4 transition-transform duration-300">
-                            <i class="fas fa-palette text-white text-lg"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 uppercase group-hover:text-orange-600">Brand Identity</h3>
-                        <p class="text-gray-600 text-sm mb-3">Complete brand development from logo design to comprehensive brand guidelines.</p>
-                        <ul class="space-y-1 mb-4">
-                            <li class="flex items-center text-xs text-gray-600"><i class="fas fa-check text-orange-500 mr-2"></i> Logo Design</li>
-                            <li class="flex items-center text-xs text-gray-600"><i class="fas fa-check text-orange-500 mr-2"></i> Brand Guidelines</li>
-                            <li class="flex items-center text-xs text-gray-600"><i class="fas fa-check text-orange-500 mr-2"></i> Visual Identity</li>
-                        </ul>
-                        <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                            <span class="price-tag text-xl font-black">FROM $350</span>
-                            <a href="#contact" class="text-orange-600 font-semibold text-sm hover:text-orange-700 flex items-center gap-1">
-                                LEARN MORE <i class="fas fa-arrow-right text-xs"></i>
-                            </a>
-                        </div>
+                <div class="service-card glass-card glass-card-hover rounded-2xl overflow-hidden p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-palette text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Brand Identity</h3>
+                    <p class="text-gray-400 text-sm mb-4">Complete brand development from logo design to comprehensive brand guidelines.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Logo Design</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Brand Guidelines</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Visual Identity</li>
+                    </ul>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                        <span class="text-orange-500 font-bold text-lg">FROM $350</span>
+                        <a href="#brand-identity" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Web Design -->
-                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
-                    <div class="p-8">
-                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
-                            <i class="fas fa-laptop-code text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors uppercase">Web Design & Development</h3>
-                        <p class="text-gray-600 mb-4">Stunning, responsive websites that look amazing on every device and convert visitors into customers.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Custom Websites</li>
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> E-commerce Solutions</li>
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> CMS Integration</li>
-                        </ul>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <span class="price-tag text-2xl font-black">From $600</span>
-                            <a href="#web-design" class="text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-2">
-                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-                            </a>
-                        </div>
+                <div class="service-card glass-card glass-card-hover rounded-2xl overflow-hidden p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-laptop-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Web Design</h3>
+                    <p class="text-gray-400 text-sm mb-4">Stunning, responsive websites that look amazing on every device and convert visitors into customers.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Custom Websites</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> E-commerce Solutions</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> CMS Integration</li>
+                    </ul>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                        <span class="text-orange-500 font-bold text-lg">FROM $600</span>
+                        <a href="#web-design" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">Learn More</a>
                     </div>
                 </div>
 
                 <!-- UI/UX Design -->
-                <div class="service-card group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden border border-indigo-100" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-rose-500"></div>
-                    <div class="p-8">
-                        <div class="service-icon w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
-                            <i class="fas fa-fingerprint text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors uppercase">UI/UX Design</h3>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors uppercase">Digital Marketing</h3>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors uppercase">App Development</h3>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors uppercase">Data Solutions</h3>
-                        <p class="text-gray-600 mb-4">Transform raw data into actionable insights that drive informed business decisions.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Data Analytics</li>
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Business Intelligence</li>
-                            <li class="flex items-center text-sm text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i> Data Visualization</li>
-                        </ul>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <span class="price-tag text-2xl font-black">From $400</span>
-                            <a href="#data-solutions" class="text-cyan-600 font-semibold hover:text-cyan-800 flex items-center gap-2">
-                                Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-                            </a>
-                        </div>
+                <div class="service-card glass-card glass-card-hover rounded-2xl overflow-hidden p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-fingerprint text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">UI/UX Design</h3>
+                    <p class="text-gray-400 text-sm mb-4">Intuitive user interfaces and experiences that keep users engaged and coming back for more.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Mobile App Design</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> User Research</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Prototyping</li>
+                    </ul>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                        <span class="text-orange-500 font-bold text-lg">FROM $500</span>
+                        <a href="#ui-ux" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="service-card glass-card glass-card-hover rounded-2xl overflow-hidden p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bullhorn text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Digital Marketing</h3>
+                    <p class="text-gray-400 text-sm mb-4">Strategic campaigns that amplify your brand presence and drive measurable business growth.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Social Media Marketing</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> SEO Optimization</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Content Strategy</li>
+                    </ul>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                        <span class="text-orange-500 font-bold text-lg">FROM $300/MO</span>
+                        <a href="#digital-marketing" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- App Development -->
+                <div class="service-card glass-card glass-card-hover rounded-2xl overflow-hidden p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">App Development</h3>
+                    <p class="text-gray-400 text-sm mb-4">Custom mobile applications built with cutting-edge technology for iOS and Android platforms.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> iOS Development</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Android Development</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Cross-platform Apps</li>
+                    </ul>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                        <span class="text-orange-500 font-bold text-lg">FROM $1,500</span>
+                        <a href="#app-development" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Data Solutions -->
+                <div class="service-card glass-card glass-card-hover rounded-2xl overflow-hidden p-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Data Solutions</h3>
+                    <p class="text-gray-400 text-sm mb-4">Transform raw data into actionable insights that drive informed business decisions.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Data Analytics</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Business Intelligence</li>
+                        <li class="flex items-center text-xs text-gray-300"><i class="fas fa-check text-orange-500 mr-2"></i> Data Visualization</li>
+                    </ul>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                        <span class="text-orange-500 font-bold text-lg">FROM $400</span>
+                        <a href="#data-solutions" class="text-white text-sm hover:text-orange-500 transition-colors uppercase font-semibold">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -224,119 +262,125 @@
     <!-- Detailed Service Sections -->
 
     <!-- Brand Identity -->
-    <section id="brand-identity" class="py-20 sm:py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-purple-900"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-500 to-transparent"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="brand-identity" class="py-16 lg:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div data-aos="fade-right">
-                    <span class="inline-block px-4 py-2 bg-white/10 text-indigo-300 rounded-full text-sm font-semibold mb-4">BRAND IDENTITY</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
-                        Make Your Brand <span class="text-gradient bg-clip-text text-transparent">Unforgettable</span>
+                    <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-4 border border-orange-500/30 uppercase tracking-wider">BRAND IDENTITY</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                        Make Your Brand <span class="text-gradient-orange bg-clip-text text-transparent">Unforgettable</span>
                     </h2>
-                    <p class="text-lg text-indigo-100 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Your brand is more than just a logo – it's the entire perception people have of your business. We create comprehensive brand identities that capture your essence and resonate with your target audience.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-search text-indigo-300"></i>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-search text-orange-500"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold uppercase">Brand Discovery</h4>
-                                <h4 class="text-white font-bold uppercase">Visual Design</h4>
-                                <h4 class="text-white font-bold uppercase">Brand Guidelines</h4>
-                        <h4 class="text-white font-bold mb-4 uppercase">Our Process</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">1. Discovery</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">2. Research</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">3. Design</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">4. Refine</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">5. Launch</span>
+                                <h4 class="text-white font-bold uppercase text-sm">Brand Discovery</h4>
+                                <p class="text-gray-400 text-xs">We dive deep into understanding your business, values, and goals.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-pen-nib text-orange-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Visual Design</h4>
+                                <p class="text-gray-400 text-xs">Crafting logos, colors, and typography that tell your story.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-book text-orange-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Brand Guidelines</h4>
+                                <p class="text-gray-400 text-xs">Comprehensive documentation to maintain consistency.</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/263786187218?text=I'm interested in Brand Identity services" target="_blank" class="px-8 py-4 bg-white text-indigo-900 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Brand Identity services" target="_blank" class="px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 text-center uppercase text-sm">
                             Start Your Project
                         </a>
-                        <a href="/page/portfolio.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-indigo-900 transition-all duration-300 text-center">
+                        <a href="/page/portfolio.html" class="px-8 py-4 glass-card text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300 text-center uppercase text-sm border border-white/20">
                             View Portfolio
                         </a>
                     </div>
                 </div>
-                
                 <div class="relative" data-aos="fade-left">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="/Assets/images/services/Brand Design.png" alt="Brand Identity Design" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
-                        <div class="text-3xl font-black text-indigo-600">$350+</div>
-                        <div class="text-gray-500 text-sm">Starting Price</div>
+                    <div class="absolute -bottom-4 -left-4 glass-card rounded-xl p-4 shadow-xl">
+                        <div class="text-2xl font-black text-orange-500">$350+</div>
+                        <div class="text-gray-400 text-xs uppercase">Starting Price</div>
                     </div>
-                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-orange-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Web Design -->
-    <section id="web-design" class="py-20 sm:py-32 bg-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="order-2 lg:order-1 relative" data-aos="fade-right">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+    <section id="web-design" class="py-16 lg:py-24 bg-dark-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="relative order-2 lg:order-1" data-aos="fade-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="/Assets/images/services/web design.png" alt="Web Design & Development" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 shadow-xl">
-                        <div class="text-3xl font-black text-white">$600+</div>
-                        <div class="text-blue-100 text-sm">Starting Price</div>
+                    <div class="absolute -bottom-4 -right-4 glass-card rounded-xl p-4 shadow-xl">
+                        <div class="text-2xl font-black text-orange-500">$600+</div>
+                        <div class="text-gray-400 text-xs uppercase">Starting Price</div>
                     </div>
-                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-purple-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
-                
-                <div class="order-1 lg:order-2" data-aos="fade-left">
-                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">WEB DESIGN</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                        Websites That <span class="text-gradient bg-clip-text text-transparent">Convert</span>
+                <div data-aos="fade-left" class="order-1 lg:order-2">
+                    <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4 border border-blue-500/30 uppercase tracking-wider">WEB DESIGN</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                        Websites That <span class="text-gradient-orange bg-clip-text text-transparent">Convert</span>
                     </h2>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Your website is your 24/7 salesperson. We build stunning, fast, and conversion-focused websites that turn visitors into loyal customers.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-desktop text-blue-600"></i>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-desktop text-blue-400"></i>
                             </div>
                             <div>
-                                <h4 class="text-gray-900 font-bold uppercase">Custom Design</h4>
-                                <h4 class="text-gray-900 font-bold uppercase">Responsive</h4>
-                                <h4 class="text-gray-900 font-bold uppercase">Fast Performance</h4>
-                        <h4 class="text-gray-900 font-bold mb-4 uppercase">Our Process</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">1. Brief</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">2. Wireframe</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">3. Design</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">4. Develop</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">5. Test</span>
+                                <h4 class="text-white font-bold uppercase text-sm">Custom Design</h4>
+                                <p class="text-gray-400 text-xs">Unique designs tailored to your brand personality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-mobile text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Responsive</h4>
+                                <p class="text-gray-400 text-xs">Flawless experience on all devices and screen sizes.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-rocket text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Fast Performance</h4>
+                                <p class="text-gray-400 text-xs">Optimized for speed and search engine rankings.</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/263786187218?text=I'm interested in Web Design services" target="_blank" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 text-center">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Web Design services" target="_blank" class="px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 text-center uppercase text-sm">
                             Get a Quote
                         </a>
-                        <a href="/page/portfolio.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 text-center">
+                        <a href="/page/portfolio.html" class="px-8 py-4 glass-card text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300 text-center uppercase text-sm border border-white/20">
                             See Our Work
                         </a>
                     </div>
@@ -346,119 +390,125 @@
     </section>
 
     <!-- UI/UX Design -->
-    <section id="ui-ux" class="py-20 sm:py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-pink-900 to-rose-900"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-pink-500 to-transparent"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="ui-ux" class="py-16 lg:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div data-aos="fade-right">
-                    <span class="inline-block px-4 py-2 bg-white/10 text-pink-300 rounded-full text-sm font-semibold mb-4">UI/UX DESIGN</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
-                        Experiences That <span class="text-gradient bg-clip-text text-transparent">Engage</span>
+                    <span class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-full text-sm font-semibold mb-4 border border-pink-500/30 uppercase tracking-wider">UI/UX DESIGN</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                        Experiences That <span class="text-gradient-orange bg-clip-text text-transparent">Engage</span>
                     </h2>
-                    <p class="text-lg text-pink-100 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Great UX is invisible. We design intuitive interfaces that feel natural and delightful, keeping users engaged and driving conversions.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-users text-pink-300"></i>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-users text-pink-400"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold uppercase">User Research</h4>
-                                <h4 class="text-white font-bold uppercase">Information Architecture</h4>
-                                <h4 class="text-white font-bold uppercase">Visual Design</h4>
-                        <h4 class="text-white font-bold mb-4 uppercase">Our Process</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">1. Research</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">2. Wireframe</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">3. Prototype</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">4. Test</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">5. Launch</span>
+                                <h4 class="text-white font-bold uppercase text-sm">User Research</h4>
+                                <p class="text-gray-400 text-xs">Understanding your users' needs and behaviors.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-sitemap text-pink-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Information Architecture</h4>
+                                <p class="text-gray-400 text-xs">Structuring content for optimal user flow.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-paint-brush text-pink-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Visual Design</h4>
+                                <p class="text-gray-400 text-xs">Beautiful interfaces that users love to interact with.</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/263786187218?text=I'm interested in UI/UX Design services" target="_blank" class="px-8 py-4 bg-white text-pink-600 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center">
+                        <a href="https://wa.me/263786187218?text=I'm interested in UI/UX Design services" target="_blank" class="px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 text-center uppercase text-sm">
                             Design My App
                         </a>
-                        <a href="/page/portfolio.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-pink-600 transition-all duration-300 text-center">
+                        <a href="/page/portfolio.html" class="px-8 py-4 glass-card text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300 text-center uppercase text-sm border border-white/20">
                             View Case Studies
                         </a>
                     </div>
                 </div>
-                
                 <div class="relative" data-aos="fade-left">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="/Assets/images/services/UIUX Design.png" alt="UI/UX Design" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-pink-900/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
-                        <div class="text-3xl font-black text-pink-600">$500+</div>
-                        <div class="text-gray-500 text-sm">Starting Price</div>
+                    <div class="absolute -bottom-4 -left-4 glass-card rounded-xl p-4 shadow-xl">
+                        <div class="text-2xl font-black text-orange-500">$500+</div>
+                        <div class="text-gray-400 text-xs uppercase">Starting Price</div>
                     </div>
-                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-yellow-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Digital Marketing -->
-    <section id="digital-marketing" class="py-20 sm:py-32 bg-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-20 left-20 w-96 h-96 bg-green-500 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-20 right-20 w-96 h-96 bg-teal-500 rounded-full filter blur-3xl"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="order-2 lg:order-1 relative" data-aos="fade-right">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+    <section id="digital-marketing" class="py-16 lg:py-24 bg-dark-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="relative order-2 lg:order-1" data-aos="fade-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="/Assets/images/services/Digital Marketing.png" alt="Digital Marketing" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-6 shadow-xl">
-                        <div class="text-3xl font-black text-white">$300<span class="text-sm font-normal">/mo</span></div>
-                        <div class="text-green-100 text-sm">Starting Price</div>
+                    <div class="absolute -bottom-4 -right-4 glass-card rounded-xl p-4 shadow-xl">
+                        <div class="text-2xl font-black text-orange-500">$300<span class="text-sm font-normal">/mo</span></div>
+                        <div class="text-gray-400 text-xs uppercase">Starting Price</div>
                     </div>
-                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-orange-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
-                
-                <div class="order-1 lg:order-2" data-aos="fade-left">
-                    <span class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">DIGITAL MARKETING</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                        Grow Your <span class="text-gradient bg-clip-text text-transparent">Presence</span>
+                <div data-aos="fade-left" class="order-1 lg:order-2">
+                    <span class="inline-block px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold mb-4 border border-green-500/30 uppercase tracking-wider">DIGITAL MARKETING</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                        Grow Your <span class="text-gradient-orange bg-clip-text text-transparent">Presence</span>
                     </h2>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Stand out in the digital crowd with data-driven marketing strategies that reach your audience and deliver measurable results.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fab fa-instagram text-green-600"></i>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fab fa-instagram text-green-400"></i>
                             </div>
                             <div>
-                                <h4 class="text-gray-900 font-bold uppercase">Social Media</h4>
-                                <h4 class="text-gray-900 font-bold uppercase">SEO</h4>
-                                <h4 class="text-gray-900 font-bold uppercase">Email Marketing</h4>
-                        <h4 class="text-gray-900 font-bold mb-4 uppercase">Our Process</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">1. Audit</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">2. Strategy</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">3. Create</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">4. Launch</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">5. Optimize</span>
+                                <h4 class="text-white font-bold uppercase text-sm">Social Media</h4>
+                                <p class="text-gray-400 text-xs">Engaging content that builds community.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-search text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">SEO</h4>
+                                <p class="text-gray-400 text-xs">Rank higher and get found online.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-envelope text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Email Marketing</h4>
+                                <p class="text-gray-400 text-xs">Nurture leads into loyal customers.</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/263786187218?text=I'm interested in Digital Marketing services" target="_blank" class="px-8 py-4 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-green-500/50 transform hover:scale-105 transition-all duration-300 text-center">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Digital Marketing services" target="_blank" class="px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 text-center uppercase text-sm">
                             Start Marketing
                         </a>
-                        <a href="/page/contact.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 text-center">
+                        <a href="/page/contact.html" class="px-8 py-4 glass-card text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300 text-center uppercase text-sm border border-white/20">
                             Talk to Experts
                         </a>
                     </div>
@@ -468,119 +518,125 @@
     </section>
 
     <!-- App Development -->
-    <section id="app-development" class="py-20 sm:py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-orange-900 to-red-900"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-500 to-transparent"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="app-development" class="py-16 lg:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div data-aos="fade-right">
-                    <span class="inline-block px-4 py-2 bg-white/10 text-orange-300 rounded-full text-sm font-semibold mb-4">APP DEVELOPMENT</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
-                        Apps That <span class="text-gradient bg-clip-text text-transparent">Deliver</span>
+                    <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-4 border border-orange-500/30 uppercase tracking-wider">APP DEVELOPMENT</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                        Apps That <span class="text-gradient-orange bg-clip-text text-transparent">Deliver</span>
                     </h2>
-                    <p class="text-lg text-orange-100 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Transform your business with custom mobile applications that provide seamless user experiences and drive engagement.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fab fa-apple text-orange-300"></i>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fab fa-apple text-orange-400"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold uppercase">iOS Development</h4>
-                                <h4 class="text-white font-bold uppercase">Android Development</h4>
-                                <h4 class="text-white font-bold uppercase">Cross-platform</h4>
-                        <h4 class="text-white font-bold mb-4 uppercase">Our Process</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">1. Concept</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">2. Design</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">3. Develop</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">4. Test</span>
-                            <span class="px-4 py-2 bg-white/10 text-white rounded-full text-sm">5. Deploy</span>
+                                <h4 class="text-white font-bold uppercase text-sm">iOS Development</h4>
+                                <p class="text-gray-400 text-xs">Native apps for Apple devices.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fab fa-android text-orange-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Android Development</h4>
+                                <p class="text-gray-400 text-xs">Native apps for Android devices.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-code text-orange-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Cross-platform</h4>
+                                <p class="text-gray-400 text-xs">Efficient solutions for both platforms.</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/263786187218?text=I'm interested in App Development services" target="_blank" class="px-8 py-4 bg-white text-orange-600 rounded-full font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center">
+                        <a href="https://wa.me/263786187218?text=I'm interested in App Development services" target="_blank" class="px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 text-center uppercase text-sm">
                             Build My App
                         </a>
-                        <a href="/page/contact.html" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 text-center">
+                        <a href="/page/contact.html" class="px-8 py-4 glass-card text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300 text-center uppercase text-sm border border-white/20">
                             Discuss Project
                         </a>
                     </div>
                 </div>
-                
                 <div class="relative" data-aos="fade-left">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="/Assets/images/services/App design.png" alt="App Development" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-orange-900/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
-                        <div class="text-3xl font-black text-orange-600">$1,500+</div>
-                        <div class="text-gray-500 text-sm">Starting Price</div>
+                    <div class="absolute -bottom-4 -left-4 glass-card rounded-xl p-4 shadow-xl">
+                        <div class="text-2xl font-black text-orange-500">$1,500+</div>
+                        <div class="text-gray-400 text-xs uppercase">Starting Price</div>
                     </div>
-                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-purple-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Data Solutions -->
-    <section id="data-solutions" class="py-20 sm:py-32 bg-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-20 left-20 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="order-2 lg:order-1 relative" data-aos="fade-right">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+    <section id="data-solutions" class="py-16 lg:py-24 bg-dark-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="relative order-2 lg:order-1" data-aos="fade-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="/Assets/images/services/Data Solutions.png" alt="Data Solutions" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-6 shadow-xl">
-                        <div class="text-3xl font-black text-white">$400+</div>
-                        <div class="text-cyan-100 text-sm">Starting Price</div>
+                    <div class="absolute -bottom-4 -right-4 glass-card rounded-xl p-4 shadow-xl">
+                        <div class="text-2xl font-black text-orange-500">$400+</div>
+                        <div class="text-gray-400 text-xs uppercase">Starting Price</div>
                     </div>
-                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-pink-500 rounded-full opacity-50 blur-xl animate-pulse"></div>
                 </div>
-                
-                <div class="order-1 lg:order-2" data-aos="fade-left">
-                    <span class="inline-block px-4 py-2 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold mb-4">DATA SOLUTIONS</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                        Insights That <span class="text-gradient bg-clip-text text-transparent">Drive Growth</span>
+                <div data-aos="fade-left" class="order-1 lg:order-2">
+                    <span class="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30 uppercase tracking-wider">DATA SOLUTIONS</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                        Insights That <span class="text-gradient-orange bg-clip-text text-transparent">Drive Growth</span>
                     </h2>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
                         Turn your data into a competitive advantage. We help you collect, analyze, and visualize data to make smarter business decisions.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-database text-cyan-600"></i>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-database text-cyan-400"></i>
                             </div>
                             <div>
-                                <h4 class="text-gray-900 font-bold uppercase">Data Analytics</h4>
-                                <h4 class="text-gray-900 font-bold uppercase">Business Intelligence</h4>
-                                <h4 class="text-gray-900 font-bold uppercase">Predictive Analytics</h4>
-                        <h4 class="text-gray-900 font-bold mb-4 uppercase">Our Process</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">1. Collect</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">2. Clean</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">3. Analyze</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">4. Visualize</span>
-                            <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">5. Act</span>
+                                <h4 class="text-white font-bold uppercase text-sm">Data Analytics</h4>
+                                <p class="text-gray-400 text-xs">Uncover patterns and trends in your data.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-chart-pie text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Business Intelligence</h4>
+                                <p class="text-gray-400 text-xs">Dashboards that tell your data story.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 glass-card rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-brain text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-sm">Predictive Analytics</h4>
+                                <p class="text-gray-400 text-xs">Forecast future trends and outcomes.</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/263786187218?text=I'm interested in Data Solutions services" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-cyan-500/50 transform hover:scale-105 transition-all duration-300 text-center">
+                        <a href="https://wa.me/263786187218?text=I'm interested in Data Solutions services" target="_blank" class="px-8 py-4 bg-gradient-brand text-white rounded-full font-bold hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 text-center uppercase text-sm">
                             Get Insights
                         </a>
-                        <a href="/page/contact.html" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 text-center">
+                        <a href="/page/contact.html" class="px-8 py-4 glass-card text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300 text-center uppercase text-sm border border-white/20">
                             Talk to Experts
                         </a>
                     </div>
@@ -590,54 +646,83 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section class="py-20 sm:py-32 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-            <div class="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-500"></div>
-            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-2 bg-white/10 text-indigo-300 rounded-full text-sm font-semibold mb-4">WHY CHOOSE US</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
-                    The <span class="text-gradient bg-clip-text text-transparent">Blacklemur</span> Advantage
+    <section class="py-16 lg:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-4 border border-orange-500/30 uppercase tracking-wider">WHY CHOOSE US</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase">
+                    The <span class="text-gradient-orange bg-clip-text text-transparent">Blacklemur</span> Advantage
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 uppercase">Creative Excellence</h3>
-                    <h3 class="text-xl font-bold text-white mb-3 uppercase">Timely Delivery</h3>
-                    <h3 class="text-xl font-bold text-white mb-3 uppercase">Dedicated Support</h3>
-                    <h3 class="text-xl font-bold text-white mb-3 uppercase">Results-Driven</h3>
-                    <h3 class="text-xl font-bold text-white mb-3 uppercase">Expert Team</h3>
-                    <h3 class="text-xl font-bold text-white mb-3 uppercase">Transparent Pricing</h3>
-                    <p class="text-indigo-200">No hidden fees. Clear, upfront pricing that delivers real value for your investment.</p>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Creative Excellence</h3>
+                    <p class="text-gray-400 text-sm">Award-winning designs that capture attention and communicate your brand's unique story effectively.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Timely Delivery</h3>
+                    <p class="text-gray-400 text-sm">We understand deadlines matter. Your project is delivered on time, every time.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Dedicated Support</h3>
+                    <p class="text-gray-400 text-sm">24/7 support and ongoing maintenance to ensure your digital assets always perform at their best.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Results-Driven</h3>
+                    <p class="text-gray-400 text-sm">Every design is created with your business goals in mind. We measure success by your results.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Expert Team</h3>
+                    <p class="text-gray-400 text-sm">Years of combined experience across branding, design, development, and marketing.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-gradient-brand rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-hand-holding-usd text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Transparent Pricing</h3>
+                    <p class="text-gray-400 text-sm">No hidden fees. Clear, upfront pricing that delivers real value for your investment.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 sm:py-32 px-4 bg-white relative overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6" data-aos="fade-up">
-                Ready to Transform Your <span class="text-gradient bg-clip-text text-transparent">Brand?</span>
+    <section class="py-16 lg:py-24 bg-gradient-brand">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+                Ready to Transform Your Brand?
             </h2>
-            <p class="text-xl text-gray-600 mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
                 Let's create something extraordinary together. Get in touch for a free consultation and quote.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://wa.me/263786187218" target="_blank" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/263786187218" target="_blank" class="px-10 py-5 glass-card text-white rounded-full font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-wide border border-white/30">
                     <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                 </a>
-                <a href="mailto:info@blacklemur.co.zw" class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full font-bold text-lg hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                    <i class="fas fa-envelope"></i> Send Email
+                <a href="/page/contact.html" class="px-10 py-5 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 uppercase tracking-wide">
+                    Contact Us
                 </a>
             </div>
         </div>
@@ -762,21 +847,6 @@
 
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
-
-        // Animate service cards on scroll
-        gsap.utils.toArray('.service-card').forEach((card, i) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.6,
-                delay: i * 0.1
-            });
-        });
     </script>
 </body>
 </html>
