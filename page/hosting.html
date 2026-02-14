@@ -62,7 +62,7 @@
                         Let's Talk
                     </a>
                 </div>
-                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none z-50 relative">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -70,7 +70,7 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 z-40 transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 z-50 transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
         <button id="mobile-menu-close" class="absolute top-6 right-6 text-white text-3xl">
             <i class="fas fa-times"></i>
         </button>
@@ -407,29 +407,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        // Mobile Menu - Toggle functionality
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        if (mobileMenuBtn) {
+            // Toggle mobile menu
             mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-full');
             });
-        }
 
-        if (mobileMenuClose) {
+            // Close menu
             mobileMenuClose.addEventListener('click', () => {
                 mobileMenu.classList.add('translate-x-full');
             });
-        }
 
-        // Mobile links
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
+            // Close menu when clicking outside
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    mobileMenu.classList.add('translate-x-full');
+                }
             });
-        });
+
+            // Close menu on link click
+            mobileLinks.forEach(link => link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            }));
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
